@@ -1,4 +1,5 @@
 <html>
+<script src="js/smooth-scroll.js"></script>
 <head>
 <title>MSJCS</title>
 <style type='text/CSS'>
@@ -59,7 +60,7 @@ position:center;
       <CENTER><a href = "index.html">MSJ CompSci</a></CENTER>
       <ul>
       <li>
-            <a href="main.html">Home</a>
+            <a data-scroll href="#home">Home</a>
         </li>
         <li>
             <a href="#about">About</a>
@@ -80,6 +81,9 @@ position:center;
 <div id = "intro" class = "page"></br></br></br></br></br></br></br></br></br></br>
 <p>Welcome to MSJ CompSci. </p></br>
 <p>MSJ Computer Science is a club meant to garner interest in computer science at Mission San Jose High School and introduce students to aspects of computer science.</br></p></div>
-
+<span id="home">Smooth Scroll Check</span>
+<script>
+    smoothScroll.init();
+</script>
 </body
 </html>
