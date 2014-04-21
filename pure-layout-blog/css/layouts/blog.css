@@ -34,7 +34,7 @@ h3 {
 }
 
 .sidebar {
-    background-image:url(code.jpg);
+    background-image:url('code.jpg');
     opacity:60%;
 }
 
