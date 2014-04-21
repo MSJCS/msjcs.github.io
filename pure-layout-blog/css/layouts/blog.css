@@ -34,8 +34,9 @@ h3 {
 }
 
 .sidebar {
+    background: rgb(61, 79, 93);
+    color: #fff;
     background-image:url('code.jpg');
-    opacity:60%;
 }
 
 .brand-title,
