@@ -1,128 +1,118 @@
-<!DOCTYPE html>
-<html lang = "en">
-
+<!doctype html>
+<html lang="en">
 <head>
-<title>MSJCS</title>
-<style type='text/CSS'>
-#header {
-background: #f2f2f2;
-position: fixed;
-top: 0;
-width: 100%;
-margin-top: 0;
-padding: 20px;
-color: #ffffff;
-font-family: "century schoolbook";
-height: 50 px;
-box-shadow: 1px 1px 1px #888888;
-font-size:18px;
-z-index:999;
-padding-bottom:3px;
-}
-li{float:left;}
-ul{list-style-type:none;}
-a
-{
-display:block;
-width:90px;
-position:center;
-padding:4px;
-text-decoration:none;
-}
-#title
-{
-    display:block;
-    width:150px;
-    position:center;
-    padding:0px;
-}
-a:hover,a:active
-{
-background-color:#E0E0E0;
-}
-#title:hover, title:active
-{
-    background-color:#f2f2f2;
-}
-span{
-    font-family:helvetica;
-    padding-left:10px;
-    margin-left:25%;
-    margin-right:25%;
-    font-weight:normal;
-    text-align:center;
-    font-size:13px;
-    display:block;
-}
-#left{
-    position:fixed;
-    top:0;
-    width:20%;
-    margin-top:0;
-    height:100%;
-    left:0;
-    z-index:300;
-}
-#right{
-    position:fixed;
-    top:0;
-    width:20%;
-    margin-top:0;
-    height:100%;
-    right:0;
-    z-index:299;
-}
-#container img{
-    max-width:100%;
-    height:auto;
-}
-#container{
-    font-size:10px;
-}
-.page{min-height:100%;}
+    <meta charset="utf-8">
 
-</style>
+    <title>MSJ CompSci</title>
+
+
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure.css">
+
+        <link rel="stylesheet" href="pure-layout-blog/css/main-grid.css">
+ 
+        <link rel="stylesheet" href="pure-layout-blog/css/layouts/blog.css">
+
 </head>
+<body>
 
-<body link = gray>
-<div id="header">
-      <CENTER><a id = "title" href = "index.html">MSJ CompSci</a></CENTER>
-      <CENTER><ul>
-      <li>
-            <a href ="#intro">Home</a>
-        </li>
-        <li>
-            <a href="#about">About</a>
-        </li>
-        <li>
-            <a href="#news">News</a>
-        </li>
-        <li>
-            <a href="#events">Events</a>
-        </li>
-        <li>
-            <a data-scroll href="#contact">Contact</a>
-        </li>
-      </ul>
-  </CENTER>
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-med-1-4">
+        <div class="header">
+            <hgroup>
+                <h1 class="brand-title">MSJCompSci</h1>
+                <h2 class="brand-tagline">Welcome!</h2>
+            </hgroup>
+
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a class="pure-button" href="news.html">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="#">Empty</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="content pure-u-1 pure-u-med-3-4">
+        <div>
+            <!-- A wrapper for all the blog posts -->
+            <div class="posts">
+                <h1 class="content-subhead">Pinned Posts</h1>
+
+                <!-- A single blog post -->
+                <section class="post">
+                    <header class="post-header">
+                        <img class="post-avatar" alt="Val&#x27;s avatar" height="48" width="48" src="Val.JPG">
+
+                        <h2 class="post-title">Computer Dissection 4/29</h2>
+
+                        <p class="post-meta">
+                            By <a href="#" class="post-author">VC</a>
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>
+                            This Tuesday we are holding a computer dissection during lunch at Ms.Kuei's room in C16! Come check it out!
+                        </p>
+                    </div>
+                </section>
+            </div>
+
+            <div class="posts">
+                <h1 class="content-subhead">Recent Posts</h1>
+
+                <section class="post">
+                    <header class="post-header">
+                        <img class="post-avatar" alt="Val&#x27;s avatar" height="48" width="48" src="pure-layout-blog/img/common/ericf-avatar.png">
+
+                        <h2 class="post-title">This is another post!</h2>
+
+                        <p class="post-meta">
+                            By <a class="post-author" href="#">Author</a> under <a class="post-category post-category-js" href="#">JavaScript</a>
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        </p>
+                    </div>
+                </section>
+
+            </div>
+
+            <div class="footer">
+                <div class="pure-menu pure-menu-horizontal pure-menu-open">
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="https://www.facebook.com/groups/2010msjacsl/">Facebook</a></li>
+                        <li><a href="http://github.com/MSJCS">GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
- <img id = "left" src = "code.jpg">
- <img id = "right" src = "code.jpg">
- <div class="full" style="width:100%;height:100%;">
-<span id = "intro" class = "page"></br></br></br></br></br></br></br></br></br></br>
-<p >Welcome to MSJ CompSci. </p></br>
-<p>MSJ Computer Science is a club meant to garner interest in computer science at Mission San Jose High School and introduce students to aspects of computer science.</br></p><div id = "container"><CENTER><img id = "comic1" src = "comic1.jpg"></br>https://fbcdn-sphotos-d-a.akamaihd.net/hphotos-ak-prn2/t1.0-9/10153163_483574325102486_5476689929616923039_n.jpg</br></CENTER></div></span>
-<span id = "about" class = "page"></br></br></br></br></br></br></br>
-    <p >About</p></br>
-    <p>Coming soon...</p></br></span>
-<span id = "news" class = "page"></br></br></br></br></br></br></br>
-    <p >News</p></br>
-    <p>Coming soon...</p></br></span>
-<span id = "events" class = "page"></br></br></br></br></br></br></br>
-    <p >Events</p></br>
-    <p>Coming soon...</p></br></span>
-<span id = "contact" class = "page"></br></br></br></br></br></br></br>
-    <p >Contact</p></br>
-    <p>msjhscompsci@gmail.com</p></br></span>
-</body
+
+<script src="http://yui.yahooapis.com/3.14.1/build/yui/yui.js"></script>
+<script>
+YUI().use('node-base', 'node-event-delegate', function (Y) {
+    // This just makes sure that the href="#" attached to the <a> elements
+    // don't scroll you back up the page.
+    Y.one('body').delegate('click', function (e) {
+        e.preventDefault();
+    }, 'a[href="#"]');
+});
+</script>
+
+
+
+
+
+</body>
 </html>
