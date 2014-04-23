@@ -12,6 +12,22 @@
  
         <link rel="stylesheet" href="pure-layout-blog/css/layouts/blog.css">
 <style>
+    .slide{-webkit-animation: slide 1s forwards;
+    -moz-animation: slide 1s forwards;
+    animation: slide 1s forwards;
+    -webkit-animation-delay: 0.5s;
+    -moz-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+}
+
+@-webkit-keyframes slide {
+    100% { left: 0; }
+}
+
+@keyframes slide {
+    100% { left: 0; }
+}
+
 .logolink{
     position:relative;
     top:37%;
@@ -23,23 +39,25 @@
     position:relative;
     top:0px;
 }
+
 </style>
+
 </head>
 <body>
 
 
 <div id="layout" class="pure-g">
     <div class="sidebar pure-u-1 pure-u-med-1-4">
-        <div class="header">
+        <div class="header slide">
             <hgroup>
-                <a href = "main.html"> <img src = "Logo.png" id = "logolink"></a></br></br></br>
-                <h2 class="brand-tagline">Welcome!</h2>
+                <a href = "main.html"> <img src = "Logo.png" class = "logolink"></a>
+                <h2 class="brand-tagline">About Us</h2>
             </hgroup>
 
             <nav class="nav">
                 <ul class="nav-list">
                     <li class="nav-item">
-                        <a class="pure-button" href="about.html">About</a>
+                        <a class="pure-button" href="main.html">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="pure-button" href="contact.html">Contact</a>
@@ -53,19 +71,10 @@
         <div>
             <!-- A wrapper for all the blog posts -->
             <div class="posts">
-
-                <section class="post">
-                    <header class="post-header">
-                        <h2 class="post-title">About Us</h2>
-                    </header>
-
-                    <div class="post-description">
-                        <p>
-                            MSJ Computer Science Club (MSJCS or MSJ Compsci) is a club dedicated to promoting and expanding the interest of computer science of the students at MSJ. We aim to bring the joy and excitement of computer science to members and non-members of this club through many activities, such as lessons/presentations, competitions, discussions, and field trips. We hope to see you at our club meetings, every Friday in B8!
-                        </p>
-                    </div>
-                </section>
-
+                <h1>About</h1>
+				<p>MSJ Computer Science Club (MSJCS or MSJ Compsci) is a club dedicated to promoting and expanding the interest of computer science of the students at MSJ. We aim to bring the joy and excitement of computer science to members and non-members of this club through many activities, such as lessons/presentations, competitions, discussions, and field trips. We hope to see you at our club meetings, every Friday in B8!</p>
+                
+                
             </div>
 
 
@@ -96,6 +105,7 @@ YUI().use('node-base', 'node-event-delegate', function (Y) {
     }, 'a[href="#"]');
 });
 </script>
+
 
 
 
