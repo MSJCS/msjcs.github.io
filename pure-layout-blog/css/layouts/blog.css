@@ -37,7 +37,6 @@ h3 {
     background: rgb(95,158,160);
     background-image:url('motherboard.jpg');
     color: #fff;
-    z-index:800;
 }
 
 .brand-title,
