@@ -11,6 +11,31 @@
         <link rel="stylesheet" href="pure-layout-blog/css/main-grid.css">
  
         <link rel="stylesheet" href="pure-layout-blog/css/layouts/blog.css">
+<style>
+    .slide{-webkit-animation: slide 1s forwards;
+    -moz-animation: slide 1s forwards;
+    animation: slide 1s forwards;
+    -webkit-animation-delay: 0.5s;
+    -moz-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+}
+
+@-webkit-keyframes slide {
+    100% { left: 0; }
+}
+
+@keyframes slide {
+    100% { left: 0; }
+}
+
+#logolink{
+    position:fixed;
+    width: 20%;
+    right: 75%;
+    height:auto;
+}
+
+</style>
 
 </head>
 <body>
@@ -18,9 +43,9 @@
 
 <div id="layout" class="pure-g">
     <div class="sidebar pure-u-1 pure-u-med-1-4">
-        <div class="header">
+        <div class="header slide">
             <hgroup>
-                <h1 class="brand-title">MSJCompSci</h1>
+                <a href = "main.html"> <img src = "Logo.png" id = "logolink"></a></br></br></br>
                 <h2 class="brand-tagline">Welcome!</h2>
             </hgroup>
 
