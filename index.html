@@ -5,18 +5,9 @@
 body{background-image:url(code.jpg);}
 h1{
     font-family:'bookman old style';
-    position:fixed;
     font-size:40px;
     color:white;
     text-decoration:none;
-}
-ul{
-	display:inline-block;
-	text-decoration:none;
-	list-style-type:none;
-}
-li{
-	text-decoration:none;
 }
 .round-button {
     display:block;
@@ -37,21 +28,35 @@ li{
     background: #262626;
 }
 img{
-	width:91px;
-	height:auto;
-	position:relative;
-	top:-1px;
+    width:92px;
+    height:auto;
+    position:relative;
+    top:-1px;
+    left:-1px;
+}
+
+table.centered {
+    height:100%;width:100%;position: absolute; top: 40; bottom: 0; left: 0; right: 0;
+}
+
+tr.centered {
+    height:100%; width:100%;
 }
 
 </style>
 </head>
 
 <body link = "#F0F0F0">
-<h1><ul>
-	<li><a href="main.html" class="round-button">ENTER</a></li>
-	<li><a href = "https://github.com/msjcs" class = "round-button"><img src = "github2.png"></a></li>
-	<li><a href = "https://www.facebook.com/groups/2010msjacsl/" class = "round-button"><img src = "facebook.png"></a></li>
-	</ul>
+<h1>
+    <table class="centered">
+        <tr class="centered">
+            <td valign="middle" align="center">
+                <a href="main.html" class="round-button">ENTER</a>
+                <a href = "https://github.com/msjcs" class = "round-button"><img src = "github2.png"></a>
+                <a href = "https://www.facebook.com/groups/2010msjacsl/" class = "round-button"><img src = "facebook.png"></a>
+            </td>
+        </tr>
+    </table>
 </h1>
 </body>
 </html>
