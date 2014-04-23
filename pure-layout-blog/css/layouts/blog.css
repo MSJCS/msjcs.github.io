@@ -37,7 +37,7 @@ h3 {
     background: rgb(95,158,160);
     background-image:url('motherboard.jpg');
     color: #fff;
-    -webkit-animation: slide 1s forwards;
+ -webkit-animation: slide 1s forwards;
     -moz-animation: slide 1s forwards;
     animation: slide 1s forwards;
     -webkit-animation-delay: 0.5s;
@@ -52,7 +52,6 @@ h3 {
 @keyframes slide {
     100% { left: 0; }
 }
-
 
 .brand-title,
 .brand-tagline {
