@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>MSJ CompSci</title>
+
+
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure.css">
+
+        <link rel="stylesheet" href="pure-layout-blog/css/main-grid.css">
+ 
+        <link rel="stylesheet" href="pure-layout-blog/css/layouts/blog.css">
+
+</head>
+<body>
+
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-med-1-4">
+        <div class="header">
+            <hgroup>
+                <h1 class="brand-title">MSJCompSci</h1>
+                <h2 class="brand-tagline">Welcome!</h2>
+            </hgroup>
+
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a class="pure-button" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="#nada">Nada</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="content pure-u-1 pure-u-med-3-4">
+        <div>
+            <!-- A wrapper for all the blog posts -->
+            <div class="posts">
+
+                <section class="post">
+                    <header class="post-header">
+                        <h2 class="post-title">About Us</h2>
+                    </header>
+
+                    <div class="post-description">
+                        <p>
+                            "About Us" section coming soon!
+                        </p>
+                    </div>
+                </section>
+
+            </div>
+
+
+            <div class="footer">
+                <div class="pure-menu pure-menu-horizontal pure-menu-open">
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="https://www.facebook.com/groups/2010msjacsl/">Facebook</a></li>
+                        <li><a href="http://github.com/MSJCS">GitHub</a></li>
+                    </ul>
+                </br>
+                    <ul>
+                        <li><a href = "#">MSJHSCompSci@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="http://yui.yahooapis.com/3.14.1/build/yui/yui.js"></script>
+<script>
+YUI().use('node-base', 'node-event-delegate', function (Y) {
+    // This just makes sure that the href="#" attached to the <a> elements
+    // don't scroll you back up the page.
+    Y.one('body').delegate('click', function (e) {
+        e.preventDefault();
+    }, 'a[href="#"]');
+});
+</script>
+
+
+
+
+</body>
+</html>
