@@ -1,6 +1,5 @@
 function setupper()
 {
-alert("hi");
 var xmlhttp;
 if (window.XMLHttpRequest)
   {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -14,7 +13,6 @@ xmlhttp.onreadystatechange=function()
   {
   if (xmlhttp.readyState==4 && xmlhttp.status==200)
     {
-    alert(xmlhttp.responseText);
 	document.getElementById("postjson").value=xmlhttp.responseText;
 	loader();
     }
@@ -30,9 +28,7 @@ function addMonths(date, months) {
 //----------------------------------------------
 function loader()
 {
-//Begin JSON loader
-	alert("hi!");
-	alert(document.getElementById("postjson").value);
+//Begin JSON load
 	
 	document.getElementById("pinned").innerHTML="<h1 class=\"content-subhead\">Pinned Posts</h1>";
 	document.getElementById("recent").innerHTML="<h1 class=\"content-subhead\">Recent Posts</h1>";
