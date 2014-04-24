@@ -1,4 +1,8 @@
 {"posts":[
+	{"Title" : "Sample Title",
+	"Content" : "This is an announcement",
+	"Author" : "<name>",
+	"EventDate" : "4/23/2014"},
 	
 	{"Title" : "Computer Dissection",
 	"Content" : "This Tuesday we are holding a computer dissection during lunch at Ms.Kuei\\'s room in C16! Come check it out! Also, don\\'t forget to sign up <a href = \"https://docs.google.com/forms/d/1KJr1mIFNQZ78hEnOr02NFK0244tPM6mkkKnE26CkhAo/viewform\">here</a>.",
