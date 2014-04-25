@@ -30,9 +30,9 @@ var auth = new FirebaseSimpleLogin(chatRef, function(error, user) {
 });
 
 // attempt to log the user in with your preferred authentication provider
-auth.login('google', {
+auth.login('github', {
   rememberMe: true,
-  scope: 'https://www.googleapis.com/auth/userinfo.email'
+  scope: 'user,gist'
 });
 
 </script>
