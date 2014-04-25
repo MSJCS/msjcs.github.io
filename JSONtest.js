@@ -1,11 +1,3 @@
-
-
-function setupper()
-{
-script = document.createElement("script");
-script.type = "text/javascript";
-script.src = "https://script.googleusercontent.com/macros/echo?user_content_key=FWHhDj6hMPlDFEUsn0YIn53tnCWXEg07RGMSqU29aslrvyixk6I5V223_Tr4GOpn8MtoCOv0bWg8LDRDascvfR1utoFgANrtm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnFPy_CinLYpS-Kqj8a_RHpj3JKFSKb3u7SxNDYNbHavDb0Hev3Xq6zlapsNmAZ9Jc-PdjoYnFwe0&lib=MviSMgd3EMhpsrOYW7jqhosOmORtKAZOr?callback=loader&set=post";
-}
 //--------------------------------------------
 function addMonths(date, months) {
   date.setMonth(date.getMonth() + months);
