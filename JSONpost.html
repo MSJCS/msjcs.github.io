@@ -7,6 +7,13 @@ POST data?
 <script>
 function submitter()
 {
+var index;
+  
+  
+  
+  
+  
+  
 var xmlhttp;
 if (window.XMLHttpRequest)
   {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -24,10 +31,10 @@ xmlhttp.open("POST","https://luminous-fire-619.firebaseio.com/posts.json",true);
 xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 spost=new Object();
 spost.Title=document.getElementById("Title").value;
-spost.Author=document.getElementById("Title").value;
-spost.EventDate=document.getElementById("Title").value;
-spost.Content=document.getElementById("Title").value;
-xmlhttp.send(JSON.stringify([spost]));
+spost.Author=document.getElementById("Author").value;
+spost.EventDate=document.getElementById("EventDate").value;
+spost.Content=document.getElementById("Content").value;
+xmlhttp.send(JSON.stringify(spost));
 }
 </script>
 </head>
