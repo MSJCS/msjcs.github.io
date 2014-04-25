@@ -30,20 +30,24 @@ xmlhttp.open("POST","https://luminous-fire-619.firebaseio.com/posts.json",true);
 xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 xmlhttp.send(JSON.stringify(spost));
 }
+
+function preview(){
+document.getElementById("preview").innerHTML=document.getElementById("Content").value;
+
+}
 </script>
 </head>
 <body>
 <center>
+<form>
 Insert post here
-<form id="daform" action="https://luminous-fire-619.firebaseio.com/.json" method="post">
 TITLE:<input type="text" id="Title" value="Club Announcement"/><br/>
 AUTHOR:<input type="text" id="Author"/><br/>
 Date of Event: <input type="text" id="EventDate" value="4/24/2014"/> (MM/DD/YYYY, or post will not show up on webpage otherwise (will get it hardcoded eventually))<br/>
 Content:<br/>
-<textarea rows="16" cols="125" id="Content" form="daform"></textarea><br/>
+<textarea rows="16" cols="75" id="Content" form="daform" onchange="preview();"></textarea><div id="preview" style="width:500px;height:700px;"></div><br/>
 <input type="button" value="Submit!" onclick="submitter();"/><input type="reset" value="reset"/>
 </form>
-
 
 </center>
 </body>
