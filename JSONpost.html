@@ -67,13 +67,11 @@ Content: (click outside textarea to see result)<br/>
 var chatRef = new Firebase('https://luminous-fire-619.firebaseio.com');
 var auth = new FirebaseSimpleLogin(chatRef, function(error, user) {
   if (error) {
-    // an error occurred while attempting login
     alert(error);
   } else if (user) {
-    // user authenticated with Firebase
     alert('User ID: ' + user.id + ', Provider: ' + user.provider);
   } else {
-    // user is logged out
+    alert("logged out")
   }
 });
 
