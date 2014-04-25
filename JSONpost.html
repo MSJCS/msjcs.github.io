@@ -1,6 +1,42 @@
 <!doctype html>
 <html>
 <head>
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure.css">
+
+        <link rel="stylesheet" href="pure-layout-blog/css/main-grid.css">
+ 
+        <link rel="stylesheet" href="pure-layout-blog/css/layouts/blog.css">
+<style>
+    .slide{-webkit-animation: slide 1s forwards;
+    -moz-animation: slide 1s forwards;
+    animation: slide 1s forwards;
+    -webkit-animation-delay: 0.5s;
+    -moz-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+}
+
+@-webkit-keyframes slide {
+    100% { left: 0; }
+}
+
+@keyframes slide {
+    100% { left: 0; }
+}
+
+.logolink{
+    position:relative;
+    top:37%;
+    width: 105%;
+    right: 0%;
+    height:90%;
+}
+.brand-tagline{
+    position:relative;
+    top:0px;
+}
+
+</style
+
 <title>
 POST data?
 </title>
@@ -20,8 +56,22 @@ chatRef.push(spost);
 }
 
 function preview(){
-document.getElementById("preview").innerHTML=document.getElementById("Content").value;
-
+spost=new Object();
+spost.Title=document.getElementById("Title").value;
+spost.Author=document.getElementById("Author").value;
+spost.EventDate=document.getElementById("EventDate").value;
+spost.Content=document.getElementById("Content").value;
+document.getElementById("preview").innerHTML=
+			"<section class=\"post\">"+//apparently, one can't separate strings with '\n' in JS
+                   "<header class=\"post-header\">"+
+                       "<img class=\"post-avatar\" alt=\"Val&#x27;s avatar\" height=\"48\" width=\"48\" src=\"Val.JPG\">"+
+                       "<h2 class=\"post-title\">"+spost.Title.replace(/\\\'/g,"\'")+" "+spost.EventDate.replace(/\\\'/g,"\'")+"</h2>"+
+                       "<p class=\"post-meta\">"+
+                           "By <a href=\"#\" class=\"post-author\">"+spost.Author.replace(/\\\'/g,"\'")+"</a>"+
+                       "</p>"+
+                   "</header>"+
+                   "<div class=\"post-description\">"+"<p>"+spost.Content.replace(/\\\'/g,"\'")+"</p>"+"</div>"+
+               "</section>";
 }
 </script>
 </head>
@@ -29,7 +79,6 @@ document.getElementById("preview").innerHTML=document.getElementById("Content").
 <center>
 <form>
 Insert post here
-password:<input type="password" id="pass" value="meowmeow"/><br/>
 TITLE:<input type="text" id="Title" value="Club Announcement"/><br/>
 AUTHOR:<input type="text" id="Author"/><br/>
 Date of Event: <input type="text" id="EventDate" value="4/24/2014"/> (MM/DD/YYYY, or post will not show up on webpage otherwise (will get it hardcoded eventually))<br/>
