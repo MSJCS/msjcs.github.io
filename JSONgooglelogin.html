@@ -32,7 +32,7 @@ var auth = new FirebaseSimpleLogin(chatRef, function(error, user) {
 // attempt to log the user in with your preferred authentication provider
 auth.login('google', {
   rememberMe: true,
-  scope: 'https://www.googleapis.com/auth/plus.login'
+  scope: 'https://www.googleapis.com/auth/plus.profile.emails.read'
 });
 
 </script>
