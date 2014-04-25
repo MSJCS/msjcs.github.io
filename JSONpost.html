@@ -30,7 +30,6 @@ spost.Title=document.getElementById("Title").value;
 spost.Author=document.getElementById("Author").value;
 spost.EventDate=document.getElementById("EventDate").value;
 spost.Content=document.getElementById("Content").value;
-spost.pass=document.getElementById("pass").value;
 alert("The following info is to be posted:"+spost)
 xmlhttp.open("POST","https://luminous-fire-619.firebaseio.com/posts.json",true);
 xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
