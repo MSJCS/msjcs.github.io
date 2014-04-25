@@ -80,7 +80,8 @@ var auth = new FirebaseSimpleLogin(chatRef, function(error, user) {
 
 // attempt to log the user in with your preferred authentication provider
 auth.login('github', {
-  rememberMe: true,});
+  rememberMe: true,
+  scope: "user:email"});
 
 </script>
 
