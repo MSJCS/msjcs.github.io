@@ -7,13 +7,6 @@ POST data?
 <script>
 function submitter()
 {
-var index;
-  
-  
-  
-  
-  
-  
 var xmlhttp;
 if (window.XMLHttpRequest)
   {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -27,19 +20,20 @@ xmlhttp.onreadystatechange=function()
     document.write(xmlhttp.responseText);
     }
   }
-xmlhttp.open("POST","https://luminous-fire-619.firebaseio.com/posts.json",true);
-xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 spost=new Object();
 spost.Title=document.getElementById("Title").value;
 spost.Author=document.getElementById("Author").value;
 spost.EventDate=document.getElementById("EventDate").value;
 spost.Content=document.getElementById("Content").value;
+alert("The following info is to be posted:"+spost)
+xmlhttp.open("POST","https://luminous-fire-619.firebaseio.com/posts.json",true);
+xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 xmlhttp.send(JSON.stringify(spost));
 }
 </script>
 </head>
 <body>
-Lettuce hope this works
+<center>Lettuce hope this works
 
 <form id="daform" action="https://luminous-fire-619.firebaseio.com/.json" method="post">
 TITLE:<input type="text" id="Title"/><br/>
@@ -49,8 +43,10 @@ Date of Event: <input type="text" id="EventDate"/><br/>
 
 </form>
 
-Content: <textarea rows="40" cols="125" id="Content" form="daform"></textarea>
+Content:<br/>
+<textarea rows="40" cols="125" id="Content" form="daform"></textarea>
 
+</center>
 </body>
 
 </html>
