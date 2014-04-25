@@ -20,7 +20,7 @@ xmlhttp.onreadystatechange=function()
     document.write(xmlhttp.responseText);
     }
   }
-xmlhttp.open("POST","https://luminous-fire-619.firebaseio.com/.json",true);
+xmlhttp.open("POST","https://luminous-fire-619.firebaseio.com/posts.json",true);
 xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 spost=new Object();
 spost.Title=document.getElementById("Title").value;
