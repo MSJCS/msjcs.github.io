@@ -19,8 +19,12 @@ if (window.XMLHttpRequest)
 
 xmlhttp.onreadystatechange=function()
   {
+  if (xmlhttp.readyState==4){
+          alert(xmlhttp.status);
+  }
   if (xmlhttp.readyState==4 && xmlhttp.status==200)
     {
+         
     document.write(xmlhttp.responseText);
     auth.logout(); //logme out, please
     }
@@ -71,13 +75,13 @@ var auth = new FirebaseSimpleLogin(chatRef, function(error, user) {
   } else if (user) {
     alert('User ID: ' + user.id + ', Provider: ' + user.provider);
   } else {
-    alert("logged out")
   }
 });
 
 // attempt to log the user in with your preferred authentication provider
 auth.login('github', {
-  rememberMe: true,});
+  rememberMe: true,
+  scope: });
 
 </script>
 
