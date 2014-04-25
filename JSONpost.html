@@ -15,6 +15,7 @@ if (window.XMLHttpRequest)
 
 xmlhttp.onreadystatechange=function()
   {
+  alert(xmlhttp.status);
   if (xmlhttp.readyState==4 && xmlhttp.status==200)
     {
     document.write(xmlhttp.responseText);
@@ -25,6 +26,7 @@ spost.Title=document.getElementById("Title").value;
 spost.Author=document.getElementById("Author").value;
 spost.EventDate=document.getElementById("EventDate").value;
 spost.Content=document.getElementById("Content").value;
+spost.pass=document.getElementById("pass").value;
 alert("The following info is to be posted:"+spost)
 xmlhttp.open("POST","https://luminous-fire-619.firebaseio.com/posts.json",true);
 xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
@@ -41,6 +43,7 @@ document.getElementById("preview").innerHTML=document.getElementById("Content").
 <center>
 <form>
 Insert post here
+password:<input type="password" id="pass" value="meowmeow"/><br/>
 TITLE:<input type="text" id="Title" value="Club Announcement"/><br/>
 AUTHOR:<input type="text" id="Author"/><br/>
 Date of Event: <input type="text" id="EventDate" value="4/24/2014"/> (MM/DD/YYYY, or post will not show up on webpage otherwise (will get it hardcoded eventually))<br/>
