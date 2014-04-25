@@ -1,24 +1,10 @@
+
+
 function setupper()
 {
-var xmlhttp;
-if (window.XMLHttpRequest)
-  {// code for IE7+, Firefox, Chrome, Opera, Safari
-  xmlhttp=new XMLHttpRequest();
-  }
-else
-  {// code for IE6, IE5
-  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-xmlhttp.onreadystatechange=function()
-  {
-  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-    {
-	document.getElementById("postjson").value=xmlhttp.responseText;
-	loader();
-    }
-  }
-xmlhttp.open("GET","json/posts.json",true);
-xmlhttp.send();
+script = document.createElement("script");
+script.type = "text/javascript";
+script.src = "https://script.googleusercontent.com/macros/echo?user_content_key=FWHhDj6hMPlDFEUsn0YIn53tnCWXEg07RGMSqU29aslrvyixk6I5V223_Tr4GOpn8MtoCOv0bWg8LDRDascvfR1utoFgANrtm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnFPy_CinLYpS-Kqj8a_RHpj3JKFSKb3u7SxNDYNbHavDb0Hev3Xq6zlapsNmAZ9Jc-PdjoYnFwe0&lib=MviSMgd3EMhpsrOYW7jqhosOmORtKAZOr?callback=loader&set=post";
 }
 //--------------------------------------------
 function addMonths(date, months) {
@@ -26,7 +12,7 @@ function addMonths(date, months) {
   return date;
 }
 //----------------------------------------------
-function loader()
+function loader(request)
 {
 //Begin JSON load
 	
@@ -36,7 +22,7 @@ function loader()
 	var d = new Date();
 	var v = addMonths(new Date(), -3); //this is kinda ugly
 	var cpost = 0;
-	var posts = JSON.parse(document.getElementById("postjson").value);
+	var posts = JSON.parse(request);
 	for (i=0;i<posts.posts.length;i++){
 		cpost=posts.posts[i];
 		if ((cpost.EventDate.split("/")[2]*10000+cpost.EventDate.split("/")[0]*100+cpost.EventDate.split("/")[1]*1)>((d.getFullYear()*10000)+(d.getMonth()+1)*100+d.getDate())){
