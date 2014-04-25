@@ -9,14 +9,31 @@ POST data?
         src='https://cdn.firebase.com/js/simple-login/1.3.2/firebase-simple-login.js'>
 </script>
 <script>
-function submitter(){
+function submitter()
+{
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+
+xmlhttp.onreadystatechange=function()
+  {   alert(xmlhttp.status);
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+         
+    document.write(xmlhttp.responseText);
+    }
+  }
 spost=new Object();
 spost.Title=document.getElementById("Title").value;
 spost.Author=document.getElementById("Author").value;
 spost.EventDate=document.getElementById("EventDate").value;
 spost.Content=document.getElementById("Content").value;
 alert("The following info is to be posted:"+spost)
-chatRef.push(spost);
+xmlhttp.open("POST","https://luminous-fire-619.firebaseio.com/posts.json",true);
+xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+xmlhttp.send(JSON.stringify(spost));
 }
 
 function preview(){
@@ -46,7 +63,7 @@ Content: (click outside textarea to see result)<br/>
 <script>
 
 // instatiate the FirebaseSimpleLogin and monitor the user's auth state
-var chatRef = new Firebase('https://luminous-fire-619.firebaseio.com');
+var chatRef = new Firebase('https://luminous-fire-619.firebaseio.com/posts');
 var auth = new FirebaseSimpleLogin(chatRef, function(error, user) {
   if (error) {
     alert(error);
