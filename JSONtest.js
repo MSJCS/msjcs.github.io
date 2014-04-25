@@ -14,7 +14,7 @@ function loader(request)
 	var d = new Date();
 	var v = addMonths(new Date(), -3); //this is kinda ugly
 	var cpost = 0;
-	var posts = JSON.parse(request);
+	var posts = request;
 	for (i=0;i<posts.posts.length;i++){
 		cpost=posts.posts[i];
 		if ((cpost.EventDate.split("/")[2]*10000+cpost.EventDate.split("/")[0]*100+cpost.EventDate.split("/")[1]*1)>((d.getFullYear()*10000)+(d.getMonth()+1)*100+d.getDate())){
