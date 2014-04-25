@@ -17,7 +17,7 @@ xmlhttp.onreadystatechange=function()
   {
   if (xmlhttp.readyState==4 && xmlhttp.status==200)
     {
-    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+    document.write(xmlhttp.responseText);
     }
   }
 xmlhttp.open("POST","https://luminous-fire-619.firebaseio.com/.json",true);
@@ -28,6 +28,7 @@ spost.Author=document.getElementById("Title").value;
 spost.EventDate=document.getElementById("Title").value;
 spost.Content=document.getElementById("Title").value;
 xmlhttp.send(JSON.stringify(spost));
+}
 </script>
 </head>
 <body>
