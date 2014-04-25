@@ -73,15 +73,14 @@ var auth = new FirebaseSimpleLogin(chatRef, function(error, user) {
   if (error) {
     alert(error);
   } else if (user) {
-    alert('User ID: ' + user.id + ', Provider: ' + user.provider);
+    alert('User ID: ' + user.id + ', Provider: ' + user.provider + ", name:"+user.username);
   } else {
   }
 });
 
 // attempt to log the user in with your preferred authentication provider
 auth.login('github', {
-  rememberMe: true,
-  scope: "user"});
+  rememberMe: true});
 
 </script>
 
