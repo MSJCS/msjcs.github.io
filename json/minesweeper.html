@@ -21,10 +21,12 @@ function st(wx,x,y){q=new Array(25);
 				for(var k=cx-1;k<cx+2;k++){for(var l=cy-1;l<cy+2;l++){if(k<25&&k>-1&&l<35&&l>-1){if(z4("H"+k+"W"+l).style.backgroundColor=="red"){z8+=1}}}}if(z8==z4("H"+cx+"W"+cy).innerHTML){for(var k=cx-1;k<cx+2;k++){for(var l=cy-1;l<cy+2;l++){if(k<25&&k>-1&&l<35&&l>-1){if(z4("H"+k+"W"+l).style.backgroundColor=="grey"){z2(0,k,l)}}}}}}}}}else{st(120,cx,cy);
 				z2(e,cx,cy)}}}function z9(){for(i=0;i<25;i++){for(j=0;j<35;j++){if(q[i][j]==1){z4("H"+i+"W"+j).style.background="red"}}}}
 			</script>
-<h3><center><a class = "pure-button" href="games.html">Back to games</a>
-<button class = "pure-button" onmousedown="z9()">quit!</button><br/><br/><br/></h3>
+<h3>
+	<center><a href="games.html">Back to games</a>
+<button onmousedown="z9()">quit!</button><br/><br/><br/></h3>
 <h3><font style="color:white;">click anywhere to start</font><br/></h3>
-<table id="gametablet" style="margin-left:auto;margin-right:auto;" cellpadding="0" cellspacing="1"></table></center>
+<table id="gametablet" style="margin-left:auto;margin-right:auto;" cellpadding="0" cellspacing="1"></table>
+</center>
 <script>var z7="";for (i=0;i<25;i++){z7+="<tr>";for (j=0;j<35;j++){z7+="<td onmousedown=\"z2(event.button,"+i+","+j+");return false\" style=\"background:grey;height:20px;width:20px;\" id=\"H"+i+"W"+j+"\"/>";}z7+="</tr>";}z4("gametablet").innerHTML=z7;z7="";function z4(z5){return document.getElementById(z5);}</script>
 <script src="http://yui.yahooapis.com/3.14.1/build/yui/yui.js"></script>
 </body></html>
