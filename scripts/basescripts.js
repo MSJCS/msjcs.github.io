@@ -1,5 +1,5 @@
 window.onload=function(){
-
+srcedit();//if we're too lazy to change them all
 
 
 
