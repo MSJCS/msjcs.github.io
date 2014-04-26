@@ -55,22 +55,22 @@ if (e.keyCode==82)
 
 if ((e.keyCode==38||e.keyCode==87)&&field[3][(pos+8)%9]==0)
 {
-document.getElementById(let[(pos)%9]+"04").style.backgroundColor="#FFFFFF";
+document.getElementById(let[(pos)%9]+"04").style.backgroundColor="#CCCCCC";
 pos+=8;
 }
 if ((e.keyCode==40||e.keyCode==83)&&field[3][(pos+1)%9]==0)
 {
-document.getElementById(let[(pos)%9]+"04").style.backgroundColor="#FFFFFF";
+document.getElementById(let[(pos)%9]+"04").style.backgroundColor="#CCCCCC";
 pos+=1;
 }
 pos=pos%9;
 for (var i=0;i<9;i++)
 {
-if(field[3][i]==0){document.getElementById(let[i]+"04").style.backgroundColor="#00ff00";}
+if(field[3][i]==0){document.getElementById(let[i]+"04").style.backgroundColor="#FFff00";}
 }
 
 
-document.getElementById(let[(pos)%9]+"04").style.backgroundColor="#0000FF";
+document.getElementById(let[(pos)%9]+"04").style.backgroundColor="#00FF00";
 }
 
 function gameloop()
@@ -109,15 +109,15 @@ for (j=0;j<9;j++)
 	{
 	if (field[i][j]==1)
 		{
-		document.getElementById(let[j]+zapp(i+1)).style.backgroundColor="#000000";
+		document.getElementById(let[j]+zapp(i+1)).style.backgroundColor="#888888";
 		}
 	else if (i==3)
 	{
-	document.getElementById(let[j]+zapp(i+1)).style.backgroundColor="#00ff00";
+	document.getElementById(let[j]+zapp(i+1)).style.backgroundColor="#FFFF00";
 	}
 	else
 		{
-		document.getElementById(let[j]+zapp(i+1)).style.backgroundColor="#FFFFFF";
+		document.getElementById(let[j]+zapp(i+1)).style.backgroundColor="#CCCCCC";
 		}
 	}
 }
@@ -128,7 +128,7 @@ alert("you lose!");
 startup();
 return null;
 }
-document.getElementById(let[(pos)%9]+"04").style.backgroundColor="#0000FF";
+document.getElementById(let[(pos)%9]+"04").style.backgroundColor="#00FF00";
 count=count+1;
 document.getElementById("test").innerHTML=count;//developer record: 740
 setTimeout(gameloop,110);
@@ -142,7 +142,7 @@ setTimeout(gameloop,110);
 
 
 </script>
-<body onkeydown="keyp(event);" onload="startup();" bgcolor=#000000>
+<body onkeydown="keyp(event);" onload="startup();" bgcolor=#888888>
 <center><a href="games.html"><button>Back to games</button></a>
 <button onclick="gameloop();">Play!</button></center>
 
