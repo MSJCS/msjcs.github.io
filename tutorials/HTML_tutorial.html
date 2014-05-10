@@ -1,0 +1,397 @@
+<html>
+<head>
+<script>
+
+
+
+</script>
+<style>
+h1{
+font-family:Courier, Serif;
+color: white;
+}
+
+.fullseg{
+	background: orange;
+	color: black;
+	text-align:center;
+	margin:auto;
+	
+}
+
+.halfseg{
+	background: lightgreen;
+	color: black;
+	text-align: center;
+	margin:auto;
+	width:800px;
+}
+
+
+table{
+table-layout:fixed;
+background:white;
+width:1200;
+}
+
+.rot90{
+  width:200px;
+  background:red;
+  -webkit-transform: rotate(-90deg);	
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  text-align:center;
+  margin:auto;
+}
+</style>
+<script>
+function update(){
+document.getElementById("wysframe").contentDocument.body.innerHTML=(document.getElementById("wysedit").value);
+}
+
+function setup(){
+	titles=[
+		"Welcome",
+		"XML Format",
+		"Structure of a basic page",
+		"Inline Formatting",
+		"More Inline Formatting",
+		"Links and Images",
+		"Basic Containers/Blocks",
+		"Tables",
+		"CSS how to",
+		"Common CSS attributes",
+		"CSS Class and ID",
+		"Forms/Input",
+		"Basic Javascript Stuff",
+		"HTML5 Features",
+		"Other Stuff You Need to Know"
+		];
+	
+	for (var i=1;i<titles.length;i++){
+		document.getElementById("Tu"+i).innerHTML=
+					"<svg height=\"500\" width=\"25\" style=\"background:orange;\">"+
+					"<text x=\"20\" y=\"250\" fill=\"white\" transform=\"rotate(-90 20,250)\" font-family=\"Courier\" font-size=\"23px\" text-anchor=\"middle\">"+
+					titles[i]+
+					"</text></svg>";
+	}
+	
+	document.getElementById("Tu"+0).innerHTML="<font style=\"font-size:40px;font-family:Courier;color:orange;\">"+titles[0]+"</font>"+document.getElementById("ctnt"+0).innerHTML;
+	current=0;
+	document.getElementById("wysedit").value=document.getElementById("wysi"+current).innerHTML;
+	update();
+}
+
+function display(num){
+	alert(current);
+	document.getElementById("Tu"+current).className="fullseg";
+	document.getElementById("Tu"+num).className="halfseg";
+	
+	document.getElementById("Tu"+current).innerHTML=
+		"<svg height=\"500\" width=\"25\" style=\"background:orange;\">"+
+		"<text x=\"20\" y=\"250\" fill=\"white\" transform=\"rotate(-90 20,250)\" font-family=\"Courier\" font-size=\"23px\" text-anchor=\"middle\">"+
+		titles[current]+
+		"</text></svg>";
+	document.getElementById("Tu"+num).innerHTML="<font style=\"font-size:40px;font-family:Courier;color:orange;\">"+titles[num]+"</font>"+document.getElementById("ctnt"+num).innerHTML;
+	current=num;
+	document.getElementById("wysedit").value=document.getElementById("wysi"+current).innerHTML;
+	update();
+}
+</script>
+</head>
+<body style="background-color:skyblue;color:white;" onload="setup();">
+<center>
+<font style="font-size:50px;font-family:Courier;">Quick Introduction to HTML and CSS</font>
+<table id="slides"><tr>
+	<td class="halfseg" onclick="display(0);" id="Tu0"></td>
+	<td class="fullseg" onclick="display(1);" id="Tu1"></td>
+	<td class="fullseg" onclick="display(2);" id="Tu2"></td>
+	<td class="fullseg" onclick="display(3);" id="Tu3"></td>
+	<td class="fullseg" onclick="display(4);" id="Tu4"></td>
+	<td class="fullseg" onclick="display(5);" id="Tu5"></td>
+	<td class="fullseg" onclick="display(6);" id="Tu6"></td>
+	<td class="fullseg" onclick="display(7);" id="Tu7"></td>
+	<td class="fullseg" onclick="display(8);" id="Tu8"></td>
+	<td class="fullseg" onclick="display(9);" id="Tu9"></td>
+	<td class="fullseg" onclick="display(10);" id="Tu10"></td>
+	<td class="fullseg" onclick="display(11);" id="Tu11"></td>
+	<td class="fullseg" onclick="display(12);" id="Tu12"></td>
+	<td class="fullseg" onclick="display(13);" id="Tu13"></td>
+	<td class="fullseg" onclick="display(14);" id="Tu14"></td>
+</tr></table>
+
+
+
+
+<br/>
+
+<!--begin wysiwyg-->
+<table style="width:1200;height:600;"><tr>
+<td style="width:502;">
+<textarea id="wysedit" onchange="update();" style="width:100%;height:100%;border:white 0px solid;background:lightgreen" onchange="update();"></textarea>
+</td>
+<td>
+<iframe id="wysframe" src="about:blank" style="width:100%;height:100%;border:black 0px solid; background:orange;"></iframe>
+</td>
+</tr>
+</table>
+
+
+<!--end wysiwyg-->
+
+
+
+
+<!--tutorial data goes here-->
+
+<div id="wysi0" style="display:none;">
+example code for Welcome page
+</div>
+
+<div id="wysi1" style="display:none;">
+example code for XML thingy page
+</div>
+
+<div id="wysi2" style="display:none;">
+more example code goes here.
+</div>
+
+<div id="wysi3" style="display:none;">
+more example code goes here..
+</div>
+
+<div id="wysi4" style="display:none;">
+more example code goes here...
+</div>
+
+<div id="wysi5" style="display:none;">
+more example code goes here....
+</div>
+
+<div id="wysi6" style="display:none;">
+more example code goes here.....
+</div>
+
+<div id="wysi7" style="display:none;">
+more example code goes here....
+</div>
+
+<div id="wysi8" style="display:none;">
+more example code goes here...
+</div>
+
+<div id="wysi9" style="display:none;">
+more example code goes here..
+</div>
+
+<div id="wysi10" style="display:none;">
+more example code goes here.
+</div>
+
+<div id="wysi11" style="display:none;">
+more example code goes here
+</div>
+
+<div id="wysi12" style="display:none;">
+more example code goes here.
+</div>
+
+<div id="wysi13" style="display:none;">
+more example code goes here..
+</div>
+
+<div id="wysi14" style="display:none;">
+more example code goes here...
+</div>
+
+<!--ctnt/wysiwyg divider-->
+
+<div id="ctnt0" style="display:none;">
+	<svg height="540" width="800" style="background:lightgreen;">
+		<text text-anchor="middle" x=400 y=80 font-size=20 font-family="courier" fill="blue">
+			This is a HTML tutorial!
+		</text>
+		<text text-anchor="middle" x=400 y=160 font-family="courier" fill="white">
+			Click on the tabs to the
+			<tspan x=400 y=180>
+				right to proceed
+			</tspan>
+		</text>
+		
+		<path fill="yellow" d="M230 300 l200 0 l0 -40 l140 100 l-140 100 l0 -40 l-200 0 Z" />
+		
+	</svg>
+</div>
+
+<div id="ctnt1" style="display:none;">
+<svg height="540" width="800" style="background:lightgreen;">
+	<text text-anchor="middle" x=400 y=60 font-size=20 font-family="courier" fill="blue">
+		HTML is a markup language.
+	</text>
+	<text text-anchor="middle" x=400 y=100 font-size=20 font-family="courier" fill="Orange">
+		Most elements inside HTML are blocks.(containers)
+	</text>
+	<text text-anchor="middle" x=400 y=120 font-size=16 font-family="courier" fill="white">
+		&lt;xxxxx&gt; marks the beginning of the block and </text>
+	<text text-anchor="middle" x=400 y=137 font-size=16 font-family="courier" fill="white">
+		&lt;/xxxxx&gt; marks the end of the block
+	</text>
+	<text text-anchor="middle" x=400 y=165 font-size=20 font-family="courier" fill="white">
+		For example, for a div block, &lt;div&gt; begins the block 
+	</text>
+	<text text-anchor="middle" x=400 y=185 font-size=20 font-family="courier" fill="white">
+		and &lt;/div&gt; ends the block
+	</text>
+	<text text-anchor="middle" x=400 y=210 font-size=20 font-family="courier" fill="white">
+		Blocks can contain other elements within each other.
+	</text>
+	<line x1="25" y1="220" x2="775" y2="220" style="stroke:rgb(0,0,0);stroke-width:2" />
+	<text text-anchor="middle" x=400 y=240 font-size=20 font-family="courier" fill="orange">
+		Other elements inside HTML are not containers
+	</text>
+	<text text-anchor="middle" x=400 y=265 font-size=20 font-family="courier" fill="white">
+		These are represented by &lt;xxxxx/&gt;
+	</text>
+	<text text-anchor="middle" x=400 y=290 font-size=20 font-family="courier" fill="white">
+		For example, &lt;img/&gt; is a image block
+	</text>
+	<line x1="25" y1="300" x2="775" y2="300" style="stroke:rgb(0,0,0);stroke-width:2" />
+	<text text-anchor="middle" x=400 y=320 font-size=20 font-family="courier" fill="orange">
+		All elements have editable attributes (like adjustable stuff)
+	</text>
+	<text text-anchor="middle" x=400 y=345 font-size=20 font-family="courier" fill="white">
+		For example, &lt;img src="hello.jpg" id="img01"/&gt;
+	</text>
+	<text text-anchor="middle" x=400 y=365 font-size=20 font-family="courier" fill="white">
+		has attributes 'src' and 'id' with values of 
+	</text>
+	<text text-anchor="middle" x=400 y=385 font-size=20 font-family="courier" fill="white">
+		"hello.jpg" and "img01", respectively
+	</text>
+	<text text-anchor="middle" x=400 y=460 font-size=20 font-family="courier" fill="blue">
+		Below is an example of an HTML document
+	</text>
+	<text text-anchor="middle" x=400 y=480 font-size=20 font-family="courier" fill="blue">|
+	</text>
+	<text text-anchor="middle" x=400 y=500 font-size=20 font-family="courier" fill="blue">|
+	</text>
+	<text text-anchor="middle" x=400 y=510 font-size=20 font-family="courier" fill="blue">V
+	</text>
+</svg>
+</div>
+
+<div id="ctnt2" style="display:none;">
+	<svg height="540" width="800" style="background:lightgreen;">
+		<text text-anchor="middle" x=400 y=510 font-size=20 font-family="courier" fill="blue">
+			This is a placeholder
+		</text>
+	</svg>
+</div>
+
+<div id="ctnt3" style="display:none;">
+	<svg height="540" width="800" style="background:lightgreen;">
+		<text text-anchor="middle" x=400 y=510 font-size=20 font-family="courier" fill="blue">
+			This is a placeholder
+		</text>
+	</svg>
+</div>
+
+<div id="ctnt4" style="display:none;">
+	<svg height="540" width="800" style="background:lightgreen;">
+		<text text-anchor="middle" x=400 y=510 font-size=20 font-family="courier" fill="blue">
+			This is a placeholder
+		</text>
+	</svg>
+</div>
+
+<div id="ctnt5" style="display:none;">
+	<svg height="540" width="800" style="background:lightgreen;">
+		<text text-anchor="middle" x=400 y=510 font-size=20 font-family="courier" fill="blue">
+			This is a placeholder
+		</text>
+	</svg>
+</div>
+
+<div id="ctnt6" style="display:none;">
+	<svg height="540" width="800" style="background:lightgreen;">
+		<text text-anchor="middle" x=400 y=510 font-size=20 font-family="courier" fill="blue">
+			This is a placeholder
+		</text>
+	</svg>
+</div>
+
+<div id="ctnt7" style="display:none;">
+	<svg height="540" width="800" style="background:lightgreen;">
+		<text text-anchor="middle" x=400 y=510 font-size=20 font-family="courier" fill="blue">
+			This is a placeholder
+		</text>
+	</svg>
+</div>
+
+<div id="ctnt8" style="display:none;">
+	<svg height="540" width="800" style="background:lightgreen;">
+		<text text-anchor="middle" x=400 y=510 font-size=20 font-family="courier" fill="blue">
+			This is a placeholder
+		</text>
+	</svg>
+</div>
+
+<div id="ctnt9" style="display:none;">
+	<svg height="540" width="800" style="background:lightgreen;">
+		<text text-anchor="middle" x=400 y=510 font-size=20 font-family="courier" fill="blue">
+			This is a placeholder
+		</text>
+	</svg>
+</div>
+
+<div id="ctnt10" style="display:none;">
+	<svg height="540" width="800" style="background:lightgreen;">
+		<text text-anchor="middle" x=400 y=510 font-size=20 font-family="courier" fill="blue">
+			This is a placeholder
+		</text>
+	</svg>
+</div>
+
+<div id="ctnt11" style="display:none;">
+	<svg height="540" width="800" style="background:lightgreen;">
+		<text text-anchor="middle" x=400 y=510 font-size=20 font-family="courier" fill="blue">
+			This is a placeholder
+		</text>
+	</svg>
+</div>
+
+<div id="ctnt12" style="display:none;">
+	<svg height="540" width="800" style="background:lightgreen;">
+		<text text-anchor="middle" x=400 y=510 font-size=20 font-family="courier" fill="blue">
+			This is a placeholder
+		</text>
+	</svg>
+</div>
+
+<div id="ctnt13" style="display:none;">
+	<svg height="540" width="800" style="background:lightgreen;">
+		<text text-anchor="middle" x=400 y=510 font-size=20 font-family="courier" fill="blue">
+			This is a placeholder
+		</text>
+	</svg>
+</div>
+
+<div id="ctnt14" style="display:none;">
+	<svg height="540" width="800" style="background:lightgreen;">
+		<text text-anchor="middle" x=400 y=510 font-size=20 font-family="courier" fill="blue">
+			This is a placeholder
+		</text>
+	</svg>
+</div>
+<!--end of tutorial data-->
+
+</center>
+</body>
+<html>
