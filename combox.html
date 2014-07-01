@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-29736033-8', 'msjcs.github.io');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+
+</script>
+    <meta charset="utf-8">
+
+    <title>MSJ CompSci</title>
+
+
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure.css">
+
+        <link rel="stylesheet" href="pure-layout-blog/css/main-grid.css">
+ 
+        <link rel="stylesheet" href="pure-layout-blog/css/layouts/blog.css">
+<style>
+    .slide{-webkit-animation: slide 1s forwards;
+    -moz-animation: slide 1s forwards;
+    animation: slide 1s forwards;
+    -webkit-animation-delay: 0.5s;
+    -moz-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+}
+
+@-webkit-keyframes slide {
+    100% { left: 0; }
+}
+
+@keyframes slide {
+    100% { left: 0; }
+}
+
+.logolink{
+    position:relative;
+    top:37%;
+    width: 105%;
+    right: 0%;
+    height:90%;
+}
+.brand-tagline{
+    position:relative;
+    top:4px;
+}
+#sidepic{
+    z-index:-998;
+    opacity:50%;
+    height:100%;
+    width:20%;
+    min-width:48em;
+}
+
+</style>
+
+</head>
+<body>
+
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-med-1-4">
+        <img id = "sidepic" src = "motherboard.jpg">
+        <div class="header slide">
+            <hgroup>
+                <a href = "main.html"><img src = "Logo.png" id = "logolink"></a>
+                <h2 class="brand-tagline">Welcome!</h2>
+            </hgroup>
+
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a class="pure-button" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="#nada">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="content pure-u-1 pure-u-med-3-4">
+        <div>
+            <!-- A wrapper for all the blog posts -->
+            <div class="posts">
+                <h1 class="content-subhead">Pinned Posts</h1>
+
+                <!-- A single blog post -->
+                <section class="post">
+                    <header class="post-header">
+                        <img class="post-avatar" alt="Val&#x27;s avatar" height="48" width="48" src="user-icons/Val.JPG">
+
+                        <h2 class="post-title">Computer Dissection 4/29</h2>
+
+                        <p class="post-meta">
+                            By <a href="#" class="post-author">Val Choung</a>
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>
+                            This Tuesday we are holding a computer dissection during lunch at Ms.Kuei's room in C16! Come check it out! Also, don't forget to sign up <a href = "https://docs.google.com/forms/d/1KJr1mIFNQZ78hEnOr02NFK0244tPM6mkkKnE26CkhAo/viewform">here</a>.
+                        </p>
+                    </div>
+                </section>
+            </div>
+
+            <section class="post">
+                    <header class="post-header">
+                        <img class="post-avatar" alt="Val&#x27;s avatar" height="48" width="48" src="user-icons/Val.JPG">
+
+                        <h2 class="post-title">Nutanix Guest Speaker 5/2</h2>
+
+                        <p class="post-meta">
+                            By <a class="post-author" href="#">Val Choung</a>
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>
+                            This Friday we have a guest speaker from <a href = "https://nutanix.com/">Nutanix</a> coming over. He'll be talking about storage virtualization and data infrastructure! Signups are <a href = "https://docs.google.com/forms/d/1E9AlO2y-AhrgwxsUK_CPnvbdQwjHCTCdrRrgw8_xgc8/viewform">here</a>. Hope to see you there!
+                        </p>
+                    </div>
+                </section>
+
+
+            <div class="posts">
+                <h1 class="content-subhead">Recent Posts</h1>
+
+                
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
