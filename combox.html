@@ -100,13 +100,16 @@
 </style>
 
 <script>
-  function switch(n){
-    document.getElementsByClassName("post-comments")[0].className="post-comments"+n;
-    document.getElementsByClassName("post-comments")[1].className="post-comments"+n;
-    document.getElementsByClassName("post-comment")[0].className="post-comment"+n;
-  }
 
+  function showcomment(id){
+    document.getElementById("comment_"+id+"_hidden").style.display="none";
+    document.getElementById("comment_"+id).style.display="auto";
+  }
   
+  function hidecomment(id){
+    document.getElementById("comment_"+id+"_hidden").style.display="auto";
+    document.getElementById("comment_"+id).style.display="none";
+  }
   
 </script>
 
@@ -161,13 +164,15 @@
                             Yay! Please DO enjoy summertime and learn more CompSci and coding!! 
                         </p>
                     </div>
+                    
+                    
                     <div class="post-comments" id="comment_meow_hidden" style="display:auto">
-                      <div class="post-comment-show" onclick="hide(meow);">
+                      <div class="post-comment-show" onclick="showcomment('meow');">
                         show comments
                       </div>
                     </div>
                     <div class="post-comments" id="comment_meow" style="display:none">
-                      <div class="post-comment-hide" onclick="hide(meow);">
+                      <div class="post-comment-hide" onclick="hidecomment('meow');">
                         hide
                       </div>
                       <div class="post-comment">
