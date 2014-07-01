@@ -94,6 +94,8 @@
     document.getElementsByClassName("post-comments")[1].className="post-comments"+n;
     document.getElementsByClassName("post-comment")[0].className="post-comment"+n;
   }
+
+  
   
 </script>
 
@@ -148,9 +150,14 @@
                             Yay! Please DO enjoy summertime and learn more CompSci and coding!! 
                         </p>
                     </div>
-                    <div class="post-comments">
-                      <div class="post-comment-hide">
-                        ^hide^
+                    <div class="post-comments" id="comment_meow_hidden" style="display:auto">
+                      <div class="post-comment-hide" onclick="hide(meow);">
+                        show
+                      </div>
+                    </div>
+                    <div class="post-comments" id="comment_meow" style="display:none">
+                      <div class="post-comment-hide" onclick="hide(meow);">
+                        hide
                       </div>
                       <div class="post-comment">
                         Comment 1
