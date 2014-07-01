@@ -78,6 +78,15 @@
   
 </style>
 
+<script>
+  function switch(n){
+    document.getElementsByClassName("post-comments")[0].className="post-comments"+n;
+    document.getElementsByClassName("post-comments")[1].className="post-comments"+n;
+    document.getElementsByClassName("post-comment")[0].className="post-comment"+n;
+  }
+  
+</script>
+
 
 </head>
 <body>
@@ -138,7 +147,7 @@
                       </div>
                     </div>
                 </section> 
-
+                <button onclick="switch();">0</button><button onclick="switch(1);">1</button><buttononclick="switch(2);">2</button><button onclick="switch(3);">3</button><button onclick="switch(4);">4</button>
                 
                 <!-- A single blog post -->
                 
