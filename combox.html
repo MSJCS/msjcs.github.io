@@ -8,7 +8,6 @@
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-29736033-8', 'msjcs.github.io');
-  ga('require', 'displayfeatures');
   ga('send', 'pageview');
 
 </script>
@@ -48,16 +47,13 @@
 }
 .brand-tagline{
     position:relative;
-    top:4px;
+    top:0px;
 }
-#sidepic{
-    z-index:-998;
-    opacity:50%;
-    height:100%;
-    width:20%;
-    min-width:48em;
+#thumbpic{
+    width:90%;
+    height:auto;
+    min-width:300px;
 }
-
 </style>
 
 </head>
@@ -66,10 +62,9 @@
 
 <div id="layout" class="pure-g">
     <div class="sidebar pure-u-1 pure-u-med-1-4">
-        <img id = "sidepic" src = "motherboard.jpg">
         <div class="header slide">
             <hgroup>
-                <a href = "main.html"><img src = "Logo.png" id = "logolink"></a>
+                <a href = "main.html"> <img src = "Logo.png" class = "logolink"></a>
                 <h2 class="brand-tagline">Welcome!</h2>
             </hgroup>
 
@@ -79,7 +74,10 @@
                         <a class="pure-button" href="about.html">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="pure-button" href="#nada">Contact</a>
+                        <a class="pure-button" href="contact.html">Contact</a>
+                    </li>
+                    <li class = "nav-item">
+                        <a class = "pure-button" href = "games.html">Games</a>
                     </li>
                 </ul>
             </nav>
@@ -92,7 +90,108 @@
             <div class="posts">
                 <h1 class="content-subhead">Pinned Posts</h1>
 
+              <section class="post">
+                    <header class="post-header">
+                        <img class="post-avatar" alt="Val&#x27;s avatar" height="48" width="48" src="user-icons/Val.JPG">
+
+                        <h2 class="post-title">Summer!</h2>
+
+                        <p class="post-meta">
+                            By <a class="post-author" href="#">Val Choung</a>
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>
+                            Yay! Please DO enjoy summertime and learn more CompSci and coding!! 
+                        </p>
+                    </div>
+                </section> 
+
+                
                 <!-- A single blog post -->
+                
+            </div>
+
+            
+
+
+            <div class="posts">
+                <h1 class="content-subhead">Recent Posts</h1>
+
+                <section class="post">
+                    <header class="post-header">
+                        <img class="post-avatar" alt="Val&#x27;s avatar" height="48" width="48" src="user-icons/Val.JPG">
+
+                        <h2 class="post-title">Guest Speaker from EA 6/6</h2>
+
+                        <p class="post-meta">
+                            By <a class="post-author" href="#">Val Choung</a>
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>
+                            This Friday, Ken Rogers, Development Director for EA, came as a guest speaker. He talked about how EA functioned as a whole and related that to 3D printing. He also brought along a mini 3D printer, and demonstrated how it worked!
+                        </p>
+                    </div>
+                </section> 
+
+                <section class = "post">
+                     <header class="post-header">
+                        <img class="post-avatar" alt="Val&#x27;s avatar" height="48" width="48" src="user-icons/Val.JPG">
+
+                        <h2 class="post-title">Guest Speaker : CS Major from CMU  6/3</h2>
+
+                        <p class="post-meta">
+                            By <a class="post-author" href="#">Val Choung</a>
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>
+                            Lilli Choung, CS Major at CMU, came this Tuesday to lecture about NP-completeness and reduction.</br></br>
+                            Since so many people asked, her slidemaker was <a href = "http://slides.com">slides</a>. 
+                        </p>
+                    </div>
+                </section>
+
+                <section class="post">
+                    <header class="post-header">
+                        <img class="post-avatar" alt="Val&#x27;s avatar" height="48" width="48" src="user-icons/Val.JPG">
+
+                        <h2 class="post-title">Shortest Path Lecture 5/20</h2>
+
+                        <p class="post-meta">
+                            By <a class="post-author" href="#">Val Choung</a>
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>
+                            Today we had Alex Dai (USACO Camper) lecture on shortest path algorithms in B-pi. He talked about Dijkstra's algorithm (upsides and downsides) and touched on several related topics as well. Thanks to all who showed up! That was a very fun (and well-timed) lecture! Picture is basically what we covered. <img src = "http://upload.wikimedia.org/wikipedia/commons/5/57/Dijkstra_Animation.gif">
+                        </p>
+                    </div>
+                </section>
+
+                <section class="post">
+                    <header class="post-header">
+                        <img class="post-avatar" alt="Val&#x27;s avatar" height="48" width="48" src="user-icons/Val.JPG">
+
+                        <h2 class="post-title">Nutanix Guest Speaker 5/2</h2>
+
+                        <p class="post-meta">
+                            By <a class="post-author" href="#">Val Choung</a>
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>
+                            This Friday we had a guest speaker Brian Finn from <a href = "http://nutanix.com/">Nutanix</a> come over and talk about storage virtualization and data infrastructure. It was a very pleasant meet, and we'll have more coming up soon!
+                        </p>
+                    </div>
+                </section>
+
                 <section class="post">
                     <header class="post-header">
                         <img class="post-avatar" alt="Val&#x27;s avatar" height="48" width="48" src="user-icons/Val.JPG">
@@ -106,17 +205,17 @@
 
                     <div class="post-description">
                         <p>
-                            This Tuesday we are holding a computer dissection during lunch at Ms.Kuei's room in C16! Come check it out! Also, don't forget to sign up <a href = "https://docs.google.com/forms/d/1KJr1mIFNQZ78hEnOr02NFK0244tPM6mkkKnE26CkhAo/viewform">here</a>.
+                            This Tuesday we held a computer dissection in Ms.Kuei's room in C16. We unscrewed the computers and played around with the parts, including the RAM, CD drive, etc. We did not solder anything though we'd planned to. Still, thanks to Sam Sze for bringing a solder and thanks to everyone who showed up! We're looking forward to future computer dissections and other club activities! </br></br>Click <a href = "dissectiongallery.html">here</a> for more pictures!</br>
                         </p>
+                        <img id = "thumbpic" src = "gallery/2014dissection/Dissection1.jpeg">
                     </div>
                 </section>
-            </div>
 
-            <section class="post">
+                <section class="post">
                     <header class="post-header">
                         <img class="post-avatar" alt="Val&#x27;s avatar" height="48" width="48" src="user-icons/Val.JPG">
 
-                        <h2 class="post-title">Nutanix Guest Speaker 5/2</h2>
+                        <h2 class="post-title">Make Games With Us Guest Speaker 4/8</h2>
 
                         <p class="post-meta">
                             By <a class="post-author" href="#">Val Choung</a>
@@ -125,20 +224,38 @@
 
                     <div class="post-description">
                         <p>
-                            This Friday we have a guest speaker from <a href = "https://nutanix.com/">Nutanix</a> coming over. He'll be talking about storage virtualization and data infrastructure! Signups are <a href = "https://docs.google.com/forms/d/1E9AlO2y-AhrgwxsUK_CPnvbdQwjHCTCdrRrgw8_xgc8/viewform">here</a>. Hope to see you there!
+                            We had a guest speaker come to Mission and talk about startups and iOS games. There was a lunch session with a general overview, and then a tutorial session for 5th and 6th period. Visit their <a href = "https://MakeGamesWith.Us/">website</a>!
                         </p>
                     </div>
                 </section>
 
-
-            <div class="posts">
-                <h1 class="content-subhead">Recent Posts</h1>
-
-                
-
             </div>
 
 
+            <div class="footer">
+                <div class="pure-menu pure-menu-horizontal pure-menu-open">
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="https://www.facebook.com/groups/2010msjacsl/">Facebook</a></li>
+                        <li><a href="http://github.com/MSJCS">GitHub</a></li>
+                    </ul>
+                </br>
+                    <ul>
+                        <li><a href = "mailto:MSJHSCompSci@gmail.com">MSJHSCompSci@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+<script src="http://yui.yahooapis.com/3.14.1/build/yui/yui.js"></script>
+<script>
+YUI().use('node-base', 'node-event-delegate', function (Y) {
+    // This just makes sure that the href="#" attached to the <a> elements
+    // don't scroll you back up the page.
+    Y.one('body').delegate('click', function (e) {
+        e.preventDefault();
+    }, 'a[href="#"]');
+});
+</script>
