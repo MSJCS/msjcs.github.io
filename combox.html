@@ -128,10 +128,11 @@
   function setup(){
     for(i=0;i<document.getElementsByClassName("post").length;i++){
       uniqueTitle=document.getElementsByClassName("post")[i].innerHTML.substr(
-        document.getElementsByClassName("post")[i].innerHTML.search('<h2'),
+        document.getElementsByClassName("post")[i].innerHTML.search('<h2')+24,
         document.getElementsByClassName("post")[i].innerHTML.search('</h2>')-
-        document.getElementsByClassName("post")[i].innerHTML.search('<h2')
-      )
+        document.getElementsByClassName("post")[i].innerHTML.search('<h2')-24
+      );
+      alert(uniqueTitle);
       document.getElementsByClassName("post")[i].innerHTML+=
       '<div class="post-comments" id="comment_'+uniqueTitle+'_hidden" style="display:auto">'+
         '<div class="post-comment-show" onclick="showcomment(\''+uniqueTitle+'\');">'+
@@ -149,7 +150,7 @@
             'Comment 2'+
           '</div>'+
           '<form class="post-comment" ><input type="text" class="meowbox" value="meowmeow"/><button class="inbutton">meow</button></form>'
-        '</div>'
+        '</div>';
       
   }
     
