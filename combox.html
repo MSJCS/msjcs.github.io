@@ -127,7 +127,7 @@
 <script>
   function setup(){
     for(i=0;i<document.getElementsByClassName("post").length;i++){
-      uniqueTitle=document.getElementsByClassName("post")[i].substr(
+      uniqueTitle=document.getElementsByClassName("post")[i].innerHTML.substr(
         document.getElementsByClassName("post")[i].innerHTML.search('<h2'),
         document.getElementsByClassName("post")[i].innerHTML.search('</h2>')-
         document.getElementsByClassName("post")[i].innerHTML.search('<h2')
