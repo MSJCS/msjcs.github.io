@@ -62,6 +62,14 @@
     font-family:Georgia;
     background:white;
     padding:1px;
+    margin-left:0%;
+  }
+  
+  .post-comments-hidden{
+    font-family:Georgia;
+    background:white;
+    padding:1px;
+    margin-left:80%;
   }
 
   .post-comment{
@@ -167,12 +175,12 @@
                     </div>
                     
                     
-                    <div class="post-comments" id="comment_meow_hidden" style="display:auto" onclick="return false;" style="margin-left:80%;">
+                    <div class="post-comments-hidden" id="comment_meow_hidden" style="display:auto">
                       <div class="post-comment-show" onclick="showcomment('meow');">
                         show comments
                       </div>
                     </div>
-                    <div class="post-comments" id="comment_meow" style="display:none" onclick="return false;" style="margin-left:0%;">
+                    <div class="post-comments" id="comment_meow" style="display:none">
                       <div class="post-comment-hide" onclick="hidecomment('meow');">
                         hide
                       </div>
