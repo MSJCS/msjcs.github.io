@@ -126,7 +126,32 @@
 
 <script>
   function setup(){
-    
+    for(i=0;i<document.getElementsByClassName("post").length;i++){
+      uniqueTitle=document.getElementsByClassName("post")[i].substr(
+        document.getElementsByClassName("post")[i].innerHTML.search('<h2'),
+        document.getElementsByClassName("post")[i].innerHTML.search('</h2>')-
+        document.getElementsByClassName("post")[i].innerHTML.search('<h2')
+      )
+      document.getElementsByClassName("post")[i].innerHTML+=
+      '<div class="post-comments" id="comment_'+uniqueTitle+'_hidden" style="display:auto">'+
+        '<div class="post-comment-show" onclick="showcomment(\''+uniqueTitle+'\');">'+
+          'show meows'+
+        '</div>'+
+      '</div>'+
+        '<div class="post-comments" id="comment_'+uniqueTitle+'" style="display:none">'+
+          '<div class="post-comment-hide" onclick="hidecomment(\''+uniqueTitle+'\');">'+
+            'hide'+
+          '</div>'+
+          '<div class="post-comment">'+
+            'Comment 1'+
+          '</div>'+
+          '<div class="post-comment">'+
+            'Comment 2'+
+          '</div>'+
+          '<form class="post-comment" ><input type="text" class="meowbox" value="meowmeow"/><button class="inbutton">meow</button></form>'
+        '</div>'
+      
+  }
     
   }
 
@@ -194,24 +219,8 @@
                     </div>
                     
                     
-                    <div class="post-comments" id="comment_meow_hidden" style="display:auto">
-                      <div class="post-comment-show" onclick="showcomment('meow');">
-                        show meows
-                      </div>
-                    </div>
-                    <div class="post-comments" id="comment_meow" style="display:none">
-                      <div class="post-comment-hide" onclick="hidecomment('meow');">
-                        hide
-                      </div>
-                      <div class="post-comment">
-                        Comment 1
-                      </div>
-                      <div class="post-comment">
-                        Comment 2
-                      </div>
-                      <form class="post-comment" ><input type="text" class="meowbox" value="meowmeow"/><button class="inbutton">meow</button></form>
-                    </div>
-                </section> 
+                    
+                </section>
                 
                 
                 <!-- A single blog post -->
