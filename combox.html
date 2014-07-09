@@ -118,9 +118,9 @@
   function setup(){
     for(i=0;i<document.getElementsByClassName("post").length;i++){
       uniqueTitle=document.getElementsByClassName("post")[i].innerHTML.substr(
-        document.getElementsByClassName("post")[i].innerHTML.search('<h2')+24,
+        document.getElementsByClassName("post")[i].innerHTML.search('<h2')+23,
         document.getElementsByClassName("post")[i].innerHTML.search('</h2>')-
-        document.getElementsByClassName("post")[i].innerHTML.search('<h2')-25
+        document.getElementsByClassName("post")[i].innerHTML.search('<h2')-23
       );
       alert(uniqueTitle);
       document.getElementsByClassName("post")[i].innerHTML+=
@@ -141,7 +141,7 @@
             'Comment 2'+
           '</div>'+
           //end comments
-          '<input type="text" id="meowbox-'+uniqueTitle+'" class="meowbox" value="meowmeow"/><button class="inbutton" onclick="commenter('+uniqueTitle+')">meow</button>'
+          '<input type="text" id="meowbox-'+uniqueTitle+'" class="meowbox" value="meowmeow"/><button class="inbutton" onclick="commenter(\''+uniqueTitle+'\')">meow</button>'
         '</div>';
       
   }
