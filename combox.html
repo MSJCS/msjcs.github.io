@@ -116,8 +116,8 @@
 <script src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
 <script src='https://luminous-fire-619.firebaseio.com/comments.json?callback=commentload'></script>
 <script>
-  function commentload(json){
-    commentators=json;
+  function commentload(moomoocow){
+    commentators=moomoocow;
   }
   
   function setup(){
@@ -143,7 +143,7 @@
               document.getElementsByClassName("post")[i].innerHTML+=
               '<div class="post-comment">'+
                 commentators[uniqueTitle][meowermeow]+
-              '</div>'
+              '</div>';
           }
           
           //end comments
