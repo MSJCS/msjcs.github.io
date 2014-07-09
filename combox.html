@@ -135,6 +135,7 @@
           'show meows'+
         '</div>'+
       '</div>'+
+        
         '<div class="post-comments" id="comment_'+uniqueTitle+'" style="display:none">'+
           '<div class="post-comment-hide" onclick="hidecomment(\''+uniqueTitle+'\');">'+
             'hide meows'+
@@ -149,9 +150,9 @@
           
           //end comments
     document.getElementsByClassName("post")[i].innerHTML+=
-    '<input type="text" id="meowbox-'+uniqueTitle
+    '<div class="post-comment"><input type="text" id="meowbox-'+uniqueTitle
     +'" class="meowbox" value="meowmeow"/><button class="inbutton" onclick="commenter(\''+uniqueTitle
-    +'\')">meow</button>'
+    +'\')">meow</button></div>'
         '</div>';
       
   }
