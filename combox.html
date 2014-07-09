@@ -128,6 +128,7 @@
         document.getElementsByClassName("post")[i].innerHTML.search('</h2>')-
         document.getElementsByClassName("post")[i].innerHTML.search('<h2')-23
       );
+      appendix="";
       appendix+=
       '<div class="post-comments" id="comment_'+uniqueTitle+'_hidden" style="display:auto">'+
         '<div class="post-comment-show" onclick="showcomment(\''+uniqueTitle+'\');">'+
@@ -154,7 +155,7 @@
     +'\')">meow</button></div></div>';
       
       alert(appendix);
-      document.getElementsByClassName("post")[i].innerHTML+=appendix
+      document.getElementsByClassName("post")[i].innerHTML+=appendix;
   }
     
   }
