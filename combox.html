@@ -114,7 +114,12 @@
   }
 </style>
 <script src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
+<script src='https://luminous-fire-619.firebaseio.com/comments.json?callback=commentload'></script>
 <script>
+  function commentload(json){
+    commentators=json;
+  }
+  
   function setup(){
     for(i=0;i<document.getElementsByClassName("post").length;i++){
       uniqueTitle=document.getElementsByClassName("post")[i].innerHTML.substr(
@@ -134,14 +139,18 @@
             'hide meows'+
           '</div>'+
           //begin comments
-          '<div class="post-comment">'+
-            'Comment 1'+
-          '</div>'+
-          '<div class="post-comment">'+
-            'Comment 2'+
-          '</div>'+
+          for (meowermeow in commentators[uniqueTitle]){
+              document.getElementsByClassName("post")[i].innerHTML+=
+              '<div class="post-comment">'+
+                commentators[uniqueTitle][meowermeow]+
+              '</div>'
+          }
+          
           //end comments
-          '<input type="text" id="meowbox-'+uniqueTitle+'" class="meowbox" value="meowmeow"/><button class="inbutton" onclick="commenter(\''+uniqueTitle+'\')">meow</button>'
+    document.getElementsByClassName("post")[i].innerHTML+=
+    '<input type="text" id="meowbox-'+uniqueTitle
+    +'" class="meowbox" value="meowmeow"/><button class="inbutton" onclick="commenter(\''+uniqueTitle
+    +'\')">meow</button>'
         '</div>';
       
   }
