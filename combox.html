@@ -128,7 +128,7 @@
         document.getElementsByClassName("post")[i].innerHTML.search('</h2>')-
         document.getElementsByClassName("post")[i].innerHTML.search('<h2')-23
       );
-      document.getElementsByClassName("post")[i].innerHTML+=
+      appendix+=
       '<div class="post-comments" id="comment_'+uniqueTitle+'_hidden" style="display:auto">'+
         '<div class="post-comment-show" onclick="showcomment(\''+uniqueTitle+'\');">'+
           'show meows'+
@@ -141,19 +141,20 @@
           '</div>';
           //begin comments
           for (meowermeow in commentators[uniqueTitle]){
-              document.getElementsByClassName("post")[i].innerHTML+=
+              appendix+=
               '<div class="post-comment">'+
                 commentators[uniqueTitle][meowermeow]+
               '</div>';
           }
           
           //end comments
-    document.getElementsByClassName("post")[i].innerHTML+=
+    appendix+=
     '<div class="post-comment"><input type="text" id="meowbox-'+uniqueTitle
     +'" class="meowbox" value="meowmeow"/><button class="inbutton" onclick="commenter(\''+uniqueTitle
-    +'\')">meow</button></div>'+'</div>';
+    +'\')">meow</button></div></div>';
       
-      alert(document.getElementsByClassName("post")[i].innerHTML);
+      alert(appendix);
+      document.getElementsByClassName("post")[i].innerHTML+=appendix
   }
     
   }
