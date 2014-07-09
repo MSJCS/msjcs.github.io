@@ -128,7 +128,6 @@
         document.getElementsByClassName("post")[i].innerHTML.search('</h2>')-
         document.getElementsByClassName("post")[i].innerHTML.search('<h2')-23
       );
-      alert(uniqueTitle);
       document.getElementsByClassName("post")[i].innerHTML+=
       '<div class="post-comments" id="comment_'+uniqueTitle+'_hidden" style="display:auto">'+
         '<div class="post-comment-show" onclick="showcomment(\''+uniqueTitle+'\');">'+
@@ -155,6 +154,7 @@
     +'\')">meow</button></div>'
         '</div>';
       
+      alert(document.getElementsByClassName("post")[i].innerHTML);
   }
     
   }
