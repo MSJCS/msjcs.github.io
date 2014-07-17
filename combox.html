@@ -181,7 +181,6 @@
     var d= new Date();
     var chatRef = new Firebase('https://luminous-fire-619.firebaseio.com/comments/'+id);
     chatRef.push({time: d.getTime(),value: document.getElementById("meowbox-"+id).value});
-    location.reload();
   }
   
 </script>
