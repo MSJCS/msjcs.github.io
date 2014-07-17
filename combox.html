@@ -144,8 +144,8 @@
             'hide meows'+
           '</div>';
           //begin comments
-          meower=commentators.sort(function(a,b){return a.time-b.time;});
-          
+          fals=function(a,b){return a.time-b.time}
+          meowers=commentators.sort(fals);
           for (meowermeow in meowers[uniqueTitle]){
               appendix+=
               '<div class="post-comment">'+
