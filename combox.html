@@ -122,6 +122,9 @@
   }
   
   function setup(){
+    
+    
+    
     for(i=0;i<document.getElementsByClassName("post").length;i++){
       uniqueTitle=document.getElementsByClassName("post")[i].innerHTML.substr(
         document.getElementsByClassName("post")[i].innerHTML.search('<h2')+23,
@@ -141,10 +144,12 @@
             'hide meows'+
           '</div>';
           //begin comments
-          for (meowermeow in commentators[uniqueTitle]){
+          meower=commentators.sort(function(a,b){return a.time-b.time;});
+          
+          for (meowermeow in meowers[uniqueTitle]){
               appendix+=
               '<div class="post-comment">'+
-                commentators[uniqueTitle][meowermeow]+
+                meowers[uniqueTitle][meowermeow]+
               '</div>';
           }
           
@@ -169,8 +174,9 @@
   }
   
   function commenter(id){
+    var d= new Date();
     var chatRef = new Firebase('https://luminous-fire-619.firebaseio.com/comments/'+id);
-    chatRef.push(document.getElementById("meowbox-"+id).value);
+    chatRef.push({time: d.getTime(),value: document.getElementById("meowbox-"+id).value});
     location.reload();
   }
   
