@@ -100,7 +100,6 @@
     padding:5px;
     font-family:Georgia;
     border:0px white solid;
-    width:80%; 
   }
   
   .inbutton{
@@ -169,8 +168,8 @@
           
           //end comments
     appendix+=
-    '<div class="post-comment"><input type="text" id="meowbox-'+uniqueTitle
-    +'" class="meowbox" value="meowmeow"/><br/><input type="text" value="your cat\'s name" id="meowname-'+uniqueTitle+'" class="meowbox"/><button class="inbutton" id="meowbutt-'+uniqueTitle+'" onmousedown="commenter(\''+uniqueTitle
+    '<div class="post-comment"><input type="text" style="width:100%" id="meowbox-'+uniqueTitle
+    +'" class="meowbox" value="meowmeow"/><br/><input type="text" style="width:80%" value="your cat\'s name" id="meowname-'+uniqueTitle+'" class="meowbox"/><button class="inbutton" id="meowbutt-'+uniqueTitle+'" onmousedown="commenter(\''+uniqueTitle
     +'\')">meow</button></div></div>';
       document.getElementsByClassName("post")[i].innerHTML+=appendix;
   }
