@@ -170,7 +170,7 @@
           //end comments
     appendix+=
     '<div class="post-comment"><input type="text" id="meowname-'+uniqueTitle+'" class="meowbox"/><br/><input type="text" id="meowbox-'+uniqueTitle
-    +'" class="meowbox" value="meowmeow"/><button class="inbutton" onclick="commenter(\''+uniqueTitle
+    +'" class="meowbox" value="meowmeow"/><button class="inbutton" id="meowbutt-'+uniquTitle+'" onclick="commenter(\''+uniqueTitle
     +'\')">meow</button></div></div>';
       document.getElementsByClassName("post")[i].innerHTML+=appendix;
   }
@@ -191,6 +191,7 @@
     var d= new Date();
     var chatRef = new Firebase('https://luminous-fire-619.firebaseio.com/comments/'+id);
     chatRef.push({time: d.getTime(),name: document.getElementById("meowname-"+id).value,value: document.getElementById("meowbox-"+id).value},function(){location.reload();});
+    document.getElementById("meowname-"+id).style.backgroundColor="red";
   }
   
 </script>
