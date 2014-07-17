@@ -150,12 +150,11 @@
           }
           function fals(la,lb){return la.time-lb.time;}
           meowers=commators.sort(fals);
-          for (meowermeow in meowers[uniqueTitle]){
+          for (meowermeow in meowers){
               appendix+=
               '<div class="post-comment">'+
-                meowers[uniqueTitle][meowermeow].value+
+                meowers[meowermeow].value+
               '</div>';
-              alert(meowers[uniqueTitle][meowermeow].value)
           }
           
           //end comments
