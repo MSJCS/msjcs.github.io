@@ -170,7 +170,7 @@
           //end comments
     appendix+=
     '<div class="post-comment"><input type="text" id="meowname-'+uniqueTitle+'" class="meowbox"/><br/><input type="text" id="meowbox-'+uniqueTitle
-    +'" class="meowbox" value="meowmeow"/><button class="inbutton" id="meowbutt-'+uniqueTitle+'" onclick="commenter(\''+uniqueTitle
+    +'" class="meowbox" value="meowmeow"/><button class="inbutton" id="meowbutt-'+uniqueTitle+'" onmousedown="commenter(\''+uniqueTitle
     +'\')">meow</button></div></div>';
       document.getElementsByClassName("post")[i].innerHTML+=appendix;
   }
