@@ -184,7 +184,7 @@
               appendix+=
               '<div class="post-comment">'+
                 meowers[meowermeow].name+'&rarr;'+
-                meowers[meowermeow].value+
+                meowers[meowermeow].value.replace(/</g,"&lt;")+
               '</div>';
           }
           
