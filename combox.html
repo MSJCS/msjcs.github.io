@@ -183,9 +183,9 @@
           for (meowermeow in meowers){
               appendix+=
               '<div class="post-comment">'+
-                meowers[meowermeow].name+'<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+
+                meowers[meowermeow].name+'<br/><div style="margin-left:20px;" >'+
                 meowers[meowermeow].value.replace(/</g,"&lt;")+
-              '</div>';
+              '</div></div><hr/>';
           }
           
           //end comments
