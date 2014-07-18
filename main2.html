@@ -175,8 +175,8 @@
           '</div>';
           //begin comments
           commators = new Array()
-          for (iiii in commentators[uniqueTitle]){
-              commators[commators.length]=commentators[uniqueTitle][iiii];
+          for (iiii in commentators[enbug(uniqueTitle)]){
+              commators[commators.length]=commentators[enbug(uniqueTitle)][iiii];
           }
           function fals(la,lb){return la.time-lb.time;}
           meowers=commators.sort(fals);
@@ -210,9 +210,17 @@
   
   function commenter(id){
     var d= new Date();
-    var chatRef = new Firebase('https://luminous-fire-619.firebaseio.com/comments/'+id);
+    var chatRef = new Firebase('https://luminous-fire-619.firebaseio.com/comments/'+debug(id));
     chatRef.push({time: d.getTime(),name: document.getElementById("meowname-"+id).value,value: document.getElementById("meowbox-"+id).value},function(){location.reload();});
     document.getElementById("meowbutt-"+id).style.backgroundColor="red";
+  }
+  
+  function debug(id){
+      return id.replace(/\u002F/g,"slushyslash");
+  }
+  
+  function enbug(id){
+      return id.replace(/slushyslash/g,"/");
   }
   
 </script>
