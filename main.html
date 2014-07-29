@@ -55,6 +55,172 @@
     min-width:300px;
 }
 </style>
+<!---commentscripting-->
+<script src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
+<script>
+  function commentload(moomoocow){
+    commentators=moomoocow;
+  }
+  
+  function setup(){
+    
+    
+    
+    for(i=0;i<document.getElementsByClassName("post").length;i++){
+      uniqueTitle=document.getElementsByClassName("post")[i].innerHTML.substr(
+        document.getElementsByClassName("post")[i].innerHTML.search('<h2')+23,
+        document.getElementsByClassName("post")[i].innerHTML.search('</h2>')-
+        document.getElementsByClassName("post")[i].innerHTML.search('<h2')-23
+      );
+      appendix="";
+      appendix+=
+      '<div class="post-comments" id="comment_'+uniqueTitle+'_hidden" style="display:auto">'+
+        '<div class="post-comment-show" onclick="showcomment(\''+uniqueTitle+'\');">'+
+          'show meows'+
+        '</div>'+
+      '</div>'+
+        
+        '<div class="post-comments" id="comment_'+uniqueTitle+'" style="display:none">'+
+          '<div class="post-comment-hide" onclick="hidecomment(\''+uniqueTitle+'\');">'+
+            'hide meows <br/>'+
+          '</div>';
+          //begin comments
+          commators = new Array()
+          for (iiii in commentators[debug(uniqueTitle)]){
+              commators[commators.length]=commentators[debug(uniqueTitle)][iiii];
+          }
+          function fals(la,lb){return la.time-lb.time;}
+          meowers=commators.sort(fals);
+          for (meowermeow in meowers){
+              appendix+=
+              '<hr/><div class="post-comment"><i><u>'+
+                meowers[meowermeow].name+'</u></i><br/><div style="margin-left:20px;" >'+
+                meowers[meowermeow].value.replace(/</g,"&lt;")+
+              '</div></div>';
+          }
+          
+          //end comments
+    appendix+=
+    '<hr/><div class="commbox">Comment:<br style="line-height:30px;"/><input type="text" id="meowbox-'+uniqueTitle
+    +'" class="meowbox-100" value="meowmeow" maxlength="200"/><br/><input type="text" value="your cat\'s name" id="meowname-'+uniqueTitle+'" class="meowbox"/><button class="inbutton" id="meowbutt-'+uniqueTitle+'" onmousedown="commenter(\''+uniqueTitle
+    +'\')" maxlength="20">meow</button></div></div>';
+      document.getElementsByClassName("post")[i].innerHTML+=appendix;
+  }
+    
+  }
+
+  function showcomment(id){
+    document.getElementById("comment_"+id+"_hidden").style.display="none";
+    document.getElementById("comment_"+id).style.display="block";
+  }
+  
+  function hidecomment(id){
+    document.getElementById("comment_"+id+"_hidden").style.display="block";
+    document.getElementById("comment_"+id).style.display="none";
+  }
+  
+  function commenter(id){
+    var d= new Date();
+    var chatRef = new Firebase('https://luminous-fire-619.firebaseio.com/comments/'+debug(id));
+    chatRef.push({time: d.getTime(),name: document.getElementById("meowname-"+id).value,value: document.getElementById("meowbox-"+id).value},function(){location.reload();});
+    document.getElementById("meowbutt-"+id).style.backgroundColor="red";
+  }
+  
+  function debug(id){
+      return id.replace(/\u002F/g,"slushyslash");
+  }
+</script>
+
+<style>
+  .post-comments{
+    font-family:Georgia;
+    background:white;
+    padding:1px;
+    width:95%;
+    display:table;
+  }
+  
+
+  .post-comment{
+    margin:1px;
+    background:white;
+    color:black;
+    padding:5px;
+    border:0px white solid;
+    width:100%;
+  }
+  
+  .commbox{
+    margin:1px;
+    background:white;
+    color:black;
+    border:0px white solid;
+    width:100%;
+  }
+  
+  .post-comment-hide{
+    margin:1px;
+    width:auto;
+    text-align:center;
+    background: rgb(95,158,160);
+    color:white;
+    padding:5px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  hr{height:1px;border-width:0;color:lightgray;background-color:lightgray}
+  
+  .post-comment-show{
+    margin:1px;
+    width:auto;
+    text-align:center;
+    border: solid 1px lightgray;
+    padding:5px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-left:80%;
+  }
+  
+  .meowbox-100{
+    margin:1px;
+    background:rgb(95,158,160);
+    color:white;
+    padding:5px;
+    font-family:Georgia;
+    border:0px white solid;
+    width:100%;
+  }
+  
+  .meowbox{
+    margin:1px;
+    background:rgb(95,158,160);
+    color:white;
+    padding:5px;
+    font-family:Georgia;
+    border:0px white solid;
+    width:50%;
+  }
+  
+  .inbutton{
+    margin-right:0px;
+    background:gray;
+    color:white;
+    padding:5px;
+    font-family:Georgia;
+    border:0px white solid;
+    width:auto;
+  }
+</style>
+<!--end commentscripting-->
 
 </head>
 <body>
@@ -248,7 +414,7 @@
         </div>
     </div>
 </div>
-
+<script src='https://luminous-fire-619.firebaseio.com/comments.json?callback=commentload'></script>
 <script src="http://yui.yahooapis.com/3.14.1/build/yui/yui.js"></script>
 <script>
 YUI().use('node-base', 'node-event-delegate', function (Y) {
