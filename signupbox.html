@@ -91,8 +91,8 @@
         t=0;
         inter=setInterval(function(){
           t=t+1;
-          document.getElementById("header").style.opacity=1-t/20;
-          if (t=20){
+          document.getElementById("header").style.opacity=t/20;
+          if (t==20){
             clearInterval(inter);
           }
         },100);
@@ -103,8 +103,8 @@
         t=0;
         inter=setInterval(function(){
           t=t+1;
-          document.getElementById("header").style.opacity=t/20;
-          if (t=20){
+          document.getElementById("header").style.opacity=1-t/20;
+          if (t==20){
             clearInterval(inter);
           }
         },100);
