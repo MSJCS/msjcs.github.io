@@ -1,6 +1,19 @@
 <html>
   <head>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure.css">
+
+    <link rel="stylesheet" href="pure-layout-blog/css/main-grid.css">
+ 
+    <link rel="stylesheet" href="pure-layout-blog/css/layouts/blog.css">
     <style>
+        #header{
+          background:rgb(95,158,160);
+          width:100%;
+          padding:2px;
+          position:fixed;
+          left:0px;
+          top:0px;
+        }
         hr{
           border: none; height: 1px; color: white; background: white;
         }
@@ -21,7 +34,7 @@
         #credits{
           position:fixed;
           display:block;
-          top: 3%;
+          top: 9%;
           left: 88%;
           color: #24476B;
           font-size: 10px;
@@ -35,7 +48,7 @@
         #form{
           position:relative;
           display:block;
-          top: 100px;
+          top: 140px;
           text-align: center;
           width:60%;
           color: #FFFFFF;
@@ -74,6 +87,20 @@
     </script>
   </head>
   <body onload="setup()">
+      <nav id="header" class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a class="pure-button" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="contact.html">Contact</a>
+                    </li>
+                    <li class = "nav-item">
+                        <a class = "pure-button" href = "games.html">Games</a>
+                    </li>
+                </ul>
+            </nav>
+  
     <div id="background"></div>
     <div id = "credits">background by Crist-JRoger</div>
     <center>
