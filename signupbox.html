@@ -65,7 +65,7 @@
         chatRef.push({
               email: document.getElementById("form-email").value,
               name: document.getElementById("form-name").value,
-              grade: 9+parseInt(document.getElementById("form-grade").options[document.getElementById("form-grade").selectedIndex]),
+              grade: 9+document.getElementById("form-grade").selectedIndex,
               facebook: document.getElementById("form-yes").checked},
           function(){location.reload();}
         );
@@ -88,7 +88,7 @@
       <option value="10">I'm a Sophomore!</option>
       <option value="11">I'm a Junior!</option>
       <option value="12">I'm a Senior!</option>
-      <option value="cat">I'm a Cat!</option>
+      <option value="Cat">I'm a Cat!</option>
     </select><br/><br/>
     Do you have facebook?: 
     <input id="form-yes" type="radio" name="fb" value="true">yes&nbsp;&nbsp;&nbsp;&nbsp;
