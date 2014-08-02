@@ -8,27 +8,8 @@
         
         
     <style>
-        .logolink{
-            position:relative;
-            top:37%;
-            width: 105%;
-            right: 0%;
-            height:auto;
-            z-index:1000;
-        }
-        .brand-tagline{
-            position:relative;
-            top:0px;
-            z-index:990;
-        }
-        #thumbpic{
-            width:90%;
-            height:auto;
-            min-width:300px;
-            position:absolute;
-        }
-        body{
-          font-family:Georgia;
+        hr{
+          border: none; height: 1px; color: white; background: white;
         }
         #background{
           position:fixed;
@@ -48,48 +29,54 @@
           position:fixed;
           display:block;
           top: 3%;
-          left: 85%;
+          left: 88%;
           color: #24476B;
-          font-family:Helvetica;
           font-size: 10px;
           z-index: 0;
           font-family:Georgia;
         }
         #headline{
-          position:relative;
-          display:block;
-          top: 15%;
-          text-align: center;
-          color: white;
-          font-family:Helvetica;
           font-size: 30px;
-          z-index:50;
           font-family:'georgia';
         }
-          #form{
+        #form{
           position:relative;
           display:block;
           top: 100px;
           text-align: center;
           width:60%;
-          color: white;
+          color: #FFFFFF;
           font-size: 12px;
-          z-index:-50;
+          z-index:50;
           font-family:'georgia';
           background:rgba(0,0,0,0.4);
           padding:20px;
         }
         .txtbox{
-          background:white;
+          background:#F6FCFF;
           color:#24476B;
           border:solid 0px white;
           font-family:'georgia';
           width:200px;
-          padding:5px;
+          padding:3px;
         }
     </style>
+    <script src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
     <script>
-      function 
+      function setup(){
+        
+      }
+      
+      function submit(){
+        var chatRef = new Firebase('https://luminous-fire-619.firebaseio.com/signups');
+        chatRef.push({
+              email: document.getElementById("form-email").value,
+              name: document.getElementById("form-name").value,
+              grade: 9+document.getElementById("form-grade").selectedIndex,
+              facebook: document.getElementById("form-yes").checked},
+          function(){location.reload();}
+        );
+      }
       
     </script>
   </head>
@@ -118,7 +105,9 @@
                 </nav>
             </div>
         </div>
-        <div id="form">
+    </div>
+    <center style="z-index:100;">
+    <div id="form">
     <div id = "headline">Compsci Club Registration Form</div>
     <hr/>
     Name: <input id="form-name" class="txtbox" autofocus/><br/><br/>
@@ -137,7 +126,7 @@
     <button class="txtbox" onclick="submit()">Sign me up!</button>
     
     </div>
-    </div>
+    </center>
     <div id = "credits">background by Crist-JRoger</div>
   </body>
 </html>
