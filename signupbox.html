@@ -102,9 +102,9 @@
         if (inter) clearInterval(inter);
         t=0;
         inter=setInterval(function(){
-          t=t+1;
-          document.getElementById("header").style.opacity=1-t/20;
-          if (t==20){
+          t=t-1;
+          document.getElementById("header").style.opacity=t/20;
+          if (t==0){
             clearInterval(inter);
           }
         },50);
