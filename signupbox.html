@@ -84,11 +84,32 @@
         );
       }
       
+      function header$fadein(){
+        clearInterval(inter);
+        t=0;
+        inter=setInterval(function(){
+          document.getElementById("header").style.opacity=t/20;
+          if (t=20){
+            clearInterval(inter);
+          }
+        },50);
+      }
+      
+      function header$fadeout(){
+        clearInterval(inter);
+        t=0;
+        inter=setInterval(function(){
+          document.getElementById("header").style.opacity=1-t/20;
+          if (t=20){
+            clearInterval(inter);
+          }
+        },50);
+      }
     </script>
   </head>
   <body onload="setup()">
       <center>
-      <nav id="header" class="nav">
+      <nav id="header" class="nav" onmouseover="header$fadein();" onmouseout="header$fadeout();">
         <ul class="nav-list">
           <li class="nav-item">
             <a href="main.html" style="border:none;background:none;">
