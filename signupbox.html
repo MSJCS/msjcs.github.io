@@ -60,7 +60,7 @@
         
       }
       
-      function commenter(id){
+      function submit(){
         var chatRef = new Firebase('https://luminous-fire-619.firebaseio.com/signups');
         chatRef.push({
               email: document.getElementById("form-email").value,
@@ -69,7 +69,6 @@
               facebook: document.getElementById("form-yes").checked},
           function(){location.reload();}
         );
-        document.getElementById("meowbutt-"+id).style.backgroundColor="red";
       }
       
     </script>
