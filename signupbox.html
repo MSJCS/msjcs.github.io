@@ -85,7 +85,7 @@
       }
       
       function header$fadein(){
-        clearInterval(inter);
+        if (inter) clearInterval(inter);
         t=0;
         inter=setInterval(function(){
           document.getElementById("header").style.opacity=t/20;
@@ -96,7 +96,7 @@
       }
       
       function header$fadeout(){
-        clearInterval(inter);
+        if (inter) clearInterval(inter);
         t=0;
         inter=setInterval(function(){
           document.getElementById("header").style.opacity=1-t/20;
