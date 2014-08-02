@@ -122,16 +122,18 @@
     <hr/>
     Name: <input id="form-name" class="txtbox"/><br/><br/>
     Email: <input id="form-email" class="txtbox"/><br/><br/>
-    Grade: 
-    <select>
+    Grade:
+    <select id="form-grade" class="txtbox">
       <option value="9">I'm a Freshman!</option>
       <option value="10">I'm a Sophomore!</option>
       <option value="11">I'm a Junior!</option>
       <option value="12">I'm a Senior!</option>
       <option value="cat">I'm a Cat!</option>
-    </select><br>
-    <br>Do you have facebook?: <input type="radio" name="fb" value="true">yes <input type="radio" name="fb" value="false">no
-    <br><br>
+    </select><br/><br/>
+    Do you have facebook?: 
+    <input id="form-yes" type="radio" name="fb" value="true">yes&nbsp;&nbsp;&nbsp;&nbsp;
+    <input id="form-no" type="radio" name="fb" value="false">no<br/><br/>
+    <button class="txtbox" onclick="submit()">Sign me up!</button>
     
     </div>
     </center>
