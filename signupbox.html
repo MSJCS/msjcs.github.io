@@ -54,8 +54,23 @@
           padding:3px;
         }
     </style>
+    <script src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
     <script>
-      function 
+      function setup(){
+        
+      }
+      
+      function commenter(id){
+        var chatRef = new Firebase('https://luminous-fire-619.firebaseio.com/signups');
+        chatRef.push({
+              email: document.getElementById("form-email").value,
+              name: document.getElementById("form-name").value,
+              grade: 9+parseInt(document.getElementById("form-grade").options[document.getElementById("form-grade").selectedIndex]),
+              facebook: document.getElementById("form-yes").checked},
+          function(){location.reload();}
+        );
+        document.getElementById("meowbutt-"+id).style.backgroundColor="red";
+      }
       
     </script>
   </head>
