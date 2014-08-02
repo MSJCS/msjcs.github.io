@@ -94,7 +94,7 @@
         inter=setInterval(function(){
           t=t+1;
           document.getElementById("header").style.opacity=t/20;
-          if (t==20){
+          if (t>20){
             clearInterval(inter);
           }
         },50);
@@ -106,7 +106,7 @@
         inter=setInterval(function(){
           t=t-1;
           document.getElementById("header").style.opacity=t/20;
-          if (t==0){
+          if (t<0){
             clearInterval(inter);
           }
         },50);
