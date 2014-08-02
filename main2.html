@@ -66,19 +66,23 @@
           z-index:50;
           font-family:'georgia';
         }
-        .back{
-          bottom:5px;
-          z-index:51;
-          text-align:center;
-        }
-        a.back{
-          position:absolute;
+         #form{
+          position:relative;
           display:block;
-          text-align:center;
+          top: 100px;
+          text-align: center;
+          width:60%;
+          color: white;
+          font-size: 12px;
+          z-index:50;
+          font-family:'georgia';
+          background:rgba(0,0,0,0.4);
+        }
+        .txtbox{
+          background:black;
           color:white;
-          font-size:15px;
-          font-family: 'georgia';
-          text-decoration:none;
+          border:solid 0px white;
+          font-family:'georgia';
         }
     </style>
   </head>
@@ -110,5 +114,24 @@
     </div>
     <div id = "credits">background by Crist-JRoger</div>
     <div id = "headline">sign up here.</div>
+       <center>
+    <div id="form">
+    <div id = "headline">Compsci Club Registration Form</div>
+    <hr/>
+    Name:<input id="form-name" class="txtbox"/><br/>
+    Email:<input id="form-email" class="txtbox"/><br/>
+    Grade:
+    <select>
+      <option value="9">I'm a Freshman!</option>
+      <option value="10">I'm a Sophomore!</option>
+      <option value="11">I'm a Junior!</option>
+      <option value="12">I'm a Senior!</option>
+      <option value="cat">I'm a Cat!</option>
+    </select>
+    Do you have facebook?: <input type="radio" name="fb" value="true">yes <input type="radio" name="fb" value="false">no
+    
+    
+    </div>
+    </center>
   </body>
 </html>
