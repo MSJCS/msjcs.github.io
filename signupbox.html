@@ -70,6 +70,7 @@
     <script src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
     <script>
       var inter=0;
+      var t=0;
       
       function setup(){
         
@@ -88,26 +89,26 @@
       
       function header$fadein(){
         if (inter) clearInterval(inter);
-        t=0;
+        alert(inter);
         inter=setInterval(function(){
           t=t+1;
-          document.getElementById("header").style.opacity=1-t/20;
-          if (t=20){
+          document.getElementById("header").style.opacity=t/20;
+          if (t==20){
             clearInterval(inter);
           }
-        },100);
+        },50);
       }
       
       function header$fadeout(){
         if (inter) clearInterval(inter);
-        t=0;
+        alert(inter);
         inter=setInterval(function(){
-          t=t+1;
+          t=t-1;
           document.getElementById("header").style.opacity=t/20;
-          if (t=20){
+          if (t==0){
             clearInterval(inter);
           }
-        },100);
+        },50);
       }
     </script>
   </head>
