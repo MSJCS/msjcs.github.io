@@ -105,18 +105,25 @@
             document.getElementById("formy").reset();
             document.getElementById("butte").style.backgroundColor="white";
             document.getElementById("butte").style.color="black";
-            document.getElementById("message").style.opacity=1;
-            if (inte) clearInterval(inte);
-            t1=-100;
-            inte=setInterval(function(){
-              t1=t1+1;
-              document.getElementById("message").style.opacity=1-t1/40;
-              if (t1>40){
-                clearInterval(inte);
-              }
-            },25);
           }
         );
+        t1=0;
+        inte=setInterval(function(){
+              t1=t1+1;
+              document.getElementById("message").style.opacity=t1/40;
+              if (t1>40){
+                document.getElementById("message").style.opacity=1;
+                if (inte) clearInterval(inte);
+                t1=-100;
+                inte=setInterval(function(){
+                  t1=t1+1;
+                  document.getElementById("message").style.opacity=1-t1/40;
+                  if (t1>40){
+                    clearInterval(inte);
+                  }
+                },25);
+              }
+            },25);
       }
       
       function header$fadein(){
