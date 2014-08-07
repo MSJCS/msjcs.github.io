@@ -107,11 +107,11 @@
             document.getElementById("butte").style.color="black";
             document.getElementById("message").style.opacity=1;
             if (inte) clearInterval(inte);
-            t1=-20;
+            t1=-100;
             inte=setInterval(function(){
               t1=t1+1;
-              document.getElementById("message").style.opacity=1-t1/20;
-              if (t1>20){
+              document.getElementById("message").style.opacity=1-t1/40;
+              if (t1>40){
                 clearInterval(inte);
               }
             },25);
