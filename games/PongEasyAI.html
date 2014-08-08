@@ -1,5 +1,32 @@
 <html>
 <head>
+    <script>
+      var intern=0;
+      var inte=0;
+      var t=0;
+
+      function header$fadein(){
+        if (intern) clearInterval(intern);
+        intern=setInterval(function(){
+          t=t+1;
+          document.getElementById("header").style.opacity=t/20;
+          if (t>20){
+            clearInterval(intern);
+          }
+        },25);
+      }
+      
+      function header$fadeout(){
+        if (intern) clearInterval(intern);
+        intern=setInterval(function(){
+          t=t-1;
+          document.getElementById("header").style.opacity=t/20;
+          if (t<0){
+            clearInterval(intern);
+          }
+        },50);
+      }
+    </script>
 <script src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
 <script>
 function isbtwn(x,a,b){
