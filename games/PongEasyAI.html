@@ -1,0 +1,231 @@
+<html>
+<head>
+<script src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
+<script>
+function isbtwn(x,a,b){
+	if (a>b){
+		return x<=a && x>=b;
+	}else if(b>a){
+		return x<=b && x>=a;
+	}else{
+		return Math.abs(x-a)<0.001;
+	}
+}
+
+function cross(a1,a2,b1,b2){
+	q=solve(a1,a2,b1,b2);
+	return isbtwn(q.x,a1.x,a2.x)&&isbtwn(q.y,a1.y,a2.y)&&isbtwn(q.x,b1.x,b2.x)&&isbtwn(q.y,b1.y,b2.y)
+}
+
+function solve(a1,a2,b1,b2){
+	ay=(a2.x-a1.x)/(a2.x*a1.y-a1.x*a2.y);
+	ax=(a2.y-a1.y)/(a2.y*a1.x-a1.y*a2.x);//ax*x+ay*y=1
+	by=(b2.x-b1.x)/(b2.x*b1.y-b1.x*b2.y);
+	bx=(b2.y-b1.y)/(b2.y*b1.x-b1.y*b2.x);
+	return {x:(ay-by)/(ay*bx-ax*by),y:(ax-bx)/(ax*by-ay*bx)}
+}
+
+function gobj(xp,yp,f,g){
+	this.pos={x:xp,y:yp};
+	this.velo={x:0,y:0};
+	this.rot=0;//counter-clockwise
+	this.draw=f;
+	this.update=g;
+	this.rotate=function(x){
+		this.rot+=x;
+	}
+}
+
+
+function get(s){
+return document.getElementById(s);
+}
+
+function setup(){
+dkeys=new Array();
+up=false;
+down=false;
+react=0;
+kii=0;
+speed=5;
+
+cvs = get("vache");
+ctx = cvs.getContext("2d");
+game = new Object();
+game.ball = new gobj(500,300,
+	function(){
+		ctx.beginPath();
+		var w=new Object();
+		w.x=this.pos.x+this.velo.x;
+		w.y=this.pos.y+this.velo.y;
+		ctx.strokeStyle="red";
+		ctx.lineWidth=5;
+		ctx.moveTo(this.pos.x,this.pos.y);
+		ctx.lineTo(w.x,w.y);
+		ctx.stroke();
+	},
+	function(){
+		speed=Math.sqrt(game.ball.velo.x*game.ball.velo.x+game.ball.velo.y*game.ball.velo.y);
+		this.pos.x+=2*this.velo.x;
+		this.pos.y+=2*this.velo.y;
+		var w=new Object();
+		w.x=this.pos.x-2*this.velo.x;
+		w.y=this.pos.y-2*this.velo.y;
+		if(this.pos.y>550){
+			this.pos.y=1100-this.pos.y;
+			this.velo.y*=-1;
+		}
+		if(this.pos.y<50){
+			this.pos.y=100-this.pos.y;
+			this.velo.y*=-1;
+		}
+		if(cross(w,this.pos,{x:50,y:350+game.lplayer.pos.x},{x:50,y:250+game.lplayer.pos.x})){
+			this.pos.x=100-this.pos.x;
+			s=(this.pos.y-(300+game.lplayer.pos.x))/50;
+			this.velo.x=Math.sqrt(1/(1+s*s))*speed;
+			this.velo.y=s/Math.sqrt(1/(1+s*s))*speed;
+		}
+		if(cross(w,this.pos,{x:950,y:350+game.rplayer.pos.x},{x:950,y:250+game.rplayer.pos.x})){
+			this.pos.x=1900-this.pos.x;
+			s=(this.pos.y-(300+game.rplayer.pos.x))/50;
+			this.velo.x=-Math.sqrt(1/(1+s*s))*speed;
+			this.velo.y=Math.sqrt(1/(1+s*s))*s*speed;
+		}
+		this.velo.x*=1.001;
+		this.velo.y*=1.001;
+	})
+var k=Math.random()-0.5;
+game.ball.velo={x:Math.cos(k)*speed,y:Math.sin(k)*speed};
+
+game.walls = new gobj(0,0,
+	function(){
+		ctx.beginPath();
+		ctx.strokeStyle="white";
+		ctx.lineWidth=2;
+		ctx.moveTo(50,50);
+		ctx.lineTo(950,50);
+		ctx.moveTo(50,550);
+		ctx.lineTo(950,550);
+		ctx.stroke();
+	},
+	function(){
+	})
+game.lplayer = new gobj(0,0,
+	function(){
+		ctx.beginPath();
+		ctx.strokeStyle="blue";
+		ctx.lineWidth=3;
+		ctx.moveTo(50,250+this.pos.x);
+		ctx.lineTo(50,350+this.pos.x);
+		ctx.stroke();
+	},
+	function(){
+		this.pos.x+=2*this.velo.x;
+		if (Math.abs(this.pos.x)>200){
+			this.velo.x=0;
+			this.pos.x=Math.abs(this.pos.x)/this.pos.x*199;
+		}
+		this.velo.x=0.90*this.velo.x;
+		if (dkeys.indexOf(87)!=-1){
+			this.velo.x-=1.5;
+		}
+		if (dkeys.indexOf(83)!=-1){
+			this.velo.x+=1.5;
+		}
+	})
+game.rplayer = new gobj(0,0,
+	function(){
+		ctx.beginPath();
+		ctx.strokeStyle="blue";
+		ctx.lineWidth=3;
+		ctx.moveTo(950,250+this.pos.x);
+		ctx.lineTo(950,350+this.pos.x);
+		ctx.stroke();
+	},
+	function(){
+		this.pos.x+=2*this.velo.x;
+		if (Math.abs(this.pos.x)>200){
+			this.velo.x=0;
+			this.pos.x=Math.abs(this.pos.x)/this.pos.x*199;
+		}
+		
+		kii+=(Math.random()-0.5)*0.05;
+		
+		this.velo.x=0.90*this.velo.x;
+		var slope=game.ball.velo.y/game.ball.velo.x*(950+(950-game.ball.pos.x)*(kii))/950;
+		var proj=slope*(950-game.ball.pos.x)+game.ball.pos.y-50;
+		proj=Math.abs(proj)%1000;
+		proj=500-Math.abs(500-proj)+50;
+		
+		
+		if(proj<280+this.pos.x){
+			react-=2*Math.random();
+		}
+		if(proj>330+this.pos.x){
+			react+=2*Math.random();
+		}
+		
+		
+		if(react<-5){
+			react=-4;
+			up=true;
+			down=false
+		}else if (react>5){
+			react=4;
+			up=false;
+			down=true;
+		}else{
+			up=false;
+			down=false;
+		}
+		
+		
+		if (up==true){
+			this.velo.x-=1.5;
+		}
+		if (down==true){
+			this.velo.x+=1.5;
+		}
+	})
+	
+inter= setInterval(update,50);
+}
+
+function draw(){
+	ctx.clearRect(0, 0, cvs.width, cvs.height)
+	for (index in game){
+		game[index].draw();
+	}
+	ctx.clearRect(0, 0, cvs.width, 48)
+	ctx.clearRect(0, 0, 48, cvs.height)
+	ctx.clearRect(0, 552, cvs.width, 48)
+	ctx.clearRect(952, 0, 48, cvs.height)
+}
+
+function update(){
+	for (index in game){
+		game[index].update();
+	}
+	draw();
+}
+
+function keyadd(e){
+	if (dkeys.indexOf(e.keyCode)==-1){
+		dkeys.push(e.keyCode);
+	}
+}
+
+function keyrmv(e){
+	dkeys.splice(dkeys.indexOf(e.keyCode), 1);
+}
+</script>
+</head>
+<body onload="setup();" onkeydown="keyadd(event)" onkeyup="keyrmv(event)" style="background:black">
+<center>
+<canvas id="vache" width="1000" height="600" style="border:solid 1px gray; position: relative; top: 50px;">
+
+</canvas>
+</center>
+
+</body>
+</html>
