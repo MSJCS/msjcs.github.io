@@ -249,9 +249,33 @@ function keyrmv(e){
 </head>
 <body onload="setup();" onkeydown="keyadd(event)" onkeyup="keyrmv(event)" style="background:black">
 <center>
-<canvas id="vache" width="1000" height="600" style="border:solid 1px gray; position: relative; top: 50px;">
+      <nav id="header" class="nav" onmouseover="header$fadein();" onmouseout="header$fadeout();">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="main.html" style="border:none;background:none;">
+            <svg style="position:relative;top:6px;height:32;width:26">
+              <rect x="2" y="8" height="10" width="10" style="fill: white"/>
+              <rect x="14" y="8" height="10" width="10" style="fill: white"/>
+              <rect x="2" y="20" height="10" width="10" style="fill: white"/>
+            </svg>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="pure-button" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="pure-button" href="contact.html">Contact</a>
+          </li>
+          <li class = "nav-item">
+            <a class = "pure-button" href = "games.html">Games</a>
+          </li>
+        </ul>
+      </nav>
+      </center>
 
-</canvas>
+
+<center>
+<canvas id="vache" width="1000" height="600" style="border:solid 1px gray; position: relative; top: 50px;"></canvas>
 </center>
 
 </body>
