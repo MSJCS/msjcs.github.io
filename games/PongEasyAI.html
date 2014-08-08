@@ -140,7 +140,7 @@ game.ball = new gobj(500,300,
 		this.velo.y*=1.001;
 	})
 var k=Math.random()-0.5;
-game.ball.velo={x:Math.cos(k)*speed,y:Math.sin(k)*speed};
+game.ball.velo={x:-Math.cos(k)*speed,y:Math.sin(k)*speed};
 
 game.walls = new gobj(0,0,
 	function(){
