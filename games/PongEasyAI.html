@@ -203,20 +203,20 @@ game.rplayer = new gobj(0,0,
 		proj=500-Math.abs(500-proj)+50;
 		
 		
-		if(proj<280+this.pos.x){
+		if(proj<280+this.pos.x+3*this.velo.x){
 			react-=2*Math.random();
 		}
-		if(proj>330+this.pos.x){
+		if(proj>330+this.pos.x+3*this.velo.x){
 			react+=2*Math.random();
 		}
 		
 		
 		if(react<-5){
-			react=-4;
+			react=-5;
 			up=true;
 			down=false
 		}else if (react>5){
-			react=4;
+			react=5;
 			up=false;
 			down=true;
 		}else{
