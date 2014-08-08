@@ -128,7 +128,7 @@ game.ball = new gobj(500,300,
 			this.pos.x=100-this.pos.x;
 			s=(this.pos.y-(300+game.lplayer.pos.x))/50;
 			this.velo.x=Math.sqrt(1/(1+s*s))*speed;
-			this.velo.y=s/Math.sqrt(1/(1+s*s))*speed;
+			this.velo.y=s*Math.sqrt(1/(1+s*s))*speed;
 		}
 		if(cross(w,this.pos,{x:950,y:350+game.rplayer.pos.x},{x:950,y:250+game.rplayer.pos.x})){
 			this.pos.x=1900-this.pos.x;
