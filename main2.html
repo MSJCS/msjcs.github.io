@@ -13,6 +13,7 @@
           position:fixed;
           left:0px;
           top:-12px;
+          opacity:0;
         }
         hr{
           border: none; height: 1px; color: white; background: white;
@@ -66,31 +67,94 @@
           width:200px;
           padding:3px;
         }
+        #message{
+          position:relative;
+          display:block;
+          top: 70px;
+          text-align: center;
+          width:20%;
+          color: #FFFFFF;
+          font-size: 12px;
+          z-index:50;
+          font-family:'georgia';
+          background:rgba(0,0,0,0.4);
+          padding:20px;
+          opacity:0;
+        }
     </style>
     <script src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
     <script>
+      var inter=0;
+      var inte=0;
+      var t=0;
+      
       function setup(){
         
       }
       
       function submit(){
+        document.getElementById("butte").style.backgroundColor="black";
+        document.getElementById("butte").style.color="white";
         var chatRef = new Firebase('https://luminous-fire-619.firebaseio.com/signups');
         chatRef.push({
               email: document.getElementById("form-email").value,
               name: document.getElementById("form-name").value,
               grade: 9+document.getElementById("form-grade").selectedIndex,
-              facebook: document.getElementById("form-yes").checked},
-          function(){location.reload();}
+              facebook: document.getElementById("form-yes").checked,
+              interest: document.getElementById("form-interest").selectedIndex},
+          function(){
+            document.getElementById("formy").reset();
+            document.getElementById("butte").style.backgroundColor="white";
+            document.getElementById("butte").style.color="black";
+          }
         );
+        t1=0;
+        inte=setInterval(function(){
+              t1=t1+1;
+              document.getElementById("message").style.opacity=t1/40;
+              if (t1>40){
+                document.getElementById("message").style.opacity=1;
+                if (inte) clearInterval(inte);
+                t1=-100;
+                inte=setInterval(function(){
+                  t1=t1+1;
+                  document.getElementById("message").style.opacity=1-t1/40;
+                  if (t1>40){
+                    clearInterval(inte);
+                  }
+                },25);
+              }
+            },25);
       }
       
+      function header$fadein(){
+        if (inter) clearInterval(inter);
+        inter=setInterval(function(){
+          t=t+1;
+          document.getElementById("header").style.opacity=t/20;
+          if (t>20){
+            clearInterval(inter);
+          }
+        },25);
+      }
+      
+      function header$fadeout(){
+        if (inter) clearInterval(inter);
+        inter=setInterval(function(){
+          t=t-1;
+          document.getElementById("header").style.opacity=t/20;
+          if (t<0){
+            clearInterval(inter);
+          }
+        },50);
+      }
     </script>
   </head>
   <body onload="setup()">
       <center>
-      <nav id="header" class="nav">
+      <nav id="header" class="nav" onmouseover="header$fadein();" onmouseout="header$fadeout();">
         <ul class="nav-list">
-           <li class="nav-item">
+          <li class="nav-item">
             <a href="main.html" style="border:none;background:none;">
             <svg style="position:relative;top:6px;height:32;width:26">
               <rect x="2" y="8" height="10" width="10" style="fill: white"/>
@@ -115,9 +179,11 @@
     <div id="background"></div>
     <div id = "credits">background by Crist-JRoger</div>
     <center>
+    <div id="message">Thank you for signing up</div>
     <div id="form">
     <div id = "headline">Compsci Club Registration Form</div>
     <hr/>
+    <form id="formy">
     Name: <input id="form-name" class="txtbox" autofocus/><br/><br/>
     Email: <input id="form-email" class="txtbox"/><br/><br/>
     Grade:
@@ -128,10 +194,19 @@
       <option value="12">I'm a Senior!</option>
       <option value="Cat">I'm a Cat!</option>
     </select><br/><br/>
+    Interest:
+    <select id="form-interest" class = "txtbox">
+      <option value = "0">I'm a beginner, but I'd like to learn!</option>
+        <option value = "1">Web Devving</option>
+      <option value = "2">Mobile Devving </option>
+      <option value = "3">Algorithms and other miscellany</option>
+    </select><br><br>
+
     Do you have facebook?: 
     <input id="form-yes" type="radio" name="fb" value="true">yes&nbsp;&nbsp;&nbsp;&nbsp;
     <input id="form-no" type="radio" name="fb" value="false">no<br/><br/>
-    <button class="txtbox" onclick="submit()">Sign me up!</button>
+    </form>
+    <button class="txtbox" id="butte" onclick="submit()">Sign me up!</button>
     
     </div>
     </center>
