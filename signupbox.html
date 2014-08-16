@@ -16,10 +16,6 @@
           top:-12px;
           opacity:0;
         }
-        .thingy{
-          text-align:left;
-          margin-right:10px;
-        }
         hr{
           border: none; height: 1px; color: white; background: white;
         }
@@ -55,7 +51,8 @@
           position:relative;
           display:block;
           top: 140px;
-          text-align: center;
+        text-align: center;
+        text-align:left;
           width:60%;
           color: #FFFFFF;
           font-size: 12px;
@@ -188,7 +185,7 @@
     <div id = "credits">background by Crist-JRoger</div>
     <center>
     <div id="message">Thank you for signing up</div>
-    <div id="form">
+    <div id="form"><CENTER>
     <div id = "headline">Compsci Club Registration Form</div>
     <hr/>
     <form id="formy">
@@ -201,7 +198,7 @@
       <option value="11">I'm a Junior!</option>
       <option value="12">I'm a Senior!</option>
       <option value="Cat">I'm a Cat!</option>
-    </select><br/><br/>
+    </select><br/><br/></CENTER>
     Interest:
     <input id = "form-beginner" type = "checkbox" name = "fb" value = "true" class = "thingy">I'm a beginner, but I'd like to learn! <br>  
     <input id = "form-webdev" type = "checkbox" name = "fb" value = "true" class = "thingy">Web devving! <br>
@@ -209,11 +206,11 @@
     <input id = "form-algsmisc" type = "checkbox" name = "fb" value = "true" class = "thingy">Algorithms and miscellany!<br><br>
 
 
-    Do you have facebook?: 
+    <CENTER>Do you have facebook?: 
     <input id="form-yes" type="radio" name="fb" value="true">yes&nbsp;&nbsp;&nbsp;&nbsp;
     <input id="form-no" type="radio" name="fb" value="false">no<br/><br/>
     </form>
-    <button class="txtbox" id="butte" onclick="submit()">Sign me up!</button>
+    <button class="txtbox" id="butte" onclick="submit()">Sign me up!</button></CENTER>
     
     </div>
     </center>
