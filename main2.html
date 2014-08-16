@@ -101,7 +101,10 @@
               name: document.getElementById("form-name").value,
               grade: 9+document.getElementById("form-grade").selectedIndex,
               facebook: document.getElementById("form-yes").checked,
-              interest: document.getElementById("form-interest").selectedIndex},
+              beginner: document.getElementById("form-beginner").checked,
+              webdev: document.getElementById("form-webdev").checked},
+              mobdev: document.getElementById("form-mobdev").checked},
+              algsmisc: document.getElementById("form-algsmisc").checked},
           function(){
             document.getElementById("formy").reset();
             document.getElementById("butte").style.backgroundColor="white";
@@ -195,12 +198,11 @@
       <option value="Cat">I'm a Cat!</option>
     </select><br/><br/>
     Interest:
-    <select id="form-interest" class = "txtbox">
-      <option value = "0">I'm a beginner, but I'd like to learn!</option>
-        <option value = "1">Web Devving</option>
-      <option value = "2">Mobile Devving </option>
-      <option value = "3">Algorithms and other miscellany</option>
-    </select><br><br>
+    <input id = "form-beginner" type = "radio" name = "fb" value = "true">I'm a beginner, but I'd like to learn!&nbsp;&nbsp;&nbsp;&nbsp;
+    <input id = "form-webdev" type = "radio" name = "fb" value = "true">Web devving!&nbsp;&nbsp;&nbsp;&nbsp;
+    <input id = "form-mobdev" type = "radio" name = "fb" value = "true">Mobile apps/devving!&nbsp;&nbsp;&nbsp;&nbsp;
+    <input id = "form-algsmisc" type = "radio" name = "fb" value = "true">Algorithms and miscellany!<br><br>
+
 
     Do you have facebook?: 
     <input id="form-yes" type="radio" name="fb" value="true">yes&nbsp;&nbsp;&nbsp;&nbsp;
