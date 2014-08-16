@@ -83,10 +83,10 @@
           padding:20px;
           opacity:0;
         }
-         .thingy{
-          margin-right:30%;
+         #thingy{
           margin-left:30%;
-        }
+          margin-right:30%;
+         }
     </style>
     <script src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
     <script>
@@ -202,12 +202,14 @@
       <option value="11">I'm a Junior!</option>
       <option value="12">I'm a Senior!</option>
       <option value="Cat">I'm a Cat!</option>
-    </select><br/><br/></CENTER>
-    Interest:
-    <input id = "form-beginner" type = "checkbox" name = "fb" value = "true" class = "thingy">I'm a beginner, but I'd like to learn! <br>  
-    <input id = "form-webdev" type = "checkbox" name = "fb" value = "true" class = "thingy">Web devving! <br>
-    <input id = "form-mobdev" type = "checkbox" name = "fb" value = "true" = "thingy">Mobile apps/devving! <br>   
-    <input id = "form-algsmisc" type = "checkbox" name = "fb" value = "true" class = "thingy">Algorithms and miscellany!<br><br>
+    </select><br/><br/>
+
+    Interest:<br></CENTER>
+    <div id = "thingy">
+    <input id = "form-beginner" type = "checkbox" name = "fb" value = "true">I'm a beginner, but I'd like to learn! <br>  
+    <input id = "form-webdev" type = "checkbox" name = "fb" value = "true">Web devving! <br>
+    <input id = "form-mobdev" type = "checkbox" name = "fb" value = "true">Mobile apps/devving! <br>   
+    <input id = "form-algsmisc" type = "checkbox" name = "fb" value = "true">Algorithms and miscellany!<br><br></div>
 
 
     <CENTER>Do you have facebook?: 
