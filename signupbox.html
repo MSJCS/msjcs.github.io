@@ -98,7 +98,7 @@
       }
       
       function submit(){
-        document.getElementById("butte").style.backgroundColor="black";
+        document.getElementById("butte").style.backgroundColor="gray";
         document.getElementById("butte").style.color="white";
         var chatRef = new Firebase('https://luminous-fire-619.firebaseio.com/signups');
         chatRef.push({
@@ -113,7 +113,7 @@
           function(){
             document.getElementById("formy").reset();
             document.getElementById("butte").style.backgroundColor="white";
-            document.getElementById("butte").style.color="black";
+            document.getElementById("butte").style.color="grayS";
           }
         );
         t1=0;
