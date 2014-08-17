@@ -23,7 +23,10 @@
         	}
         });
      	 	myDataRef.on('child_changed', function(snapshot) {
-     	 		document.getElementById("#lid").text = myDataRef.child("lid");
+     	 		var message = snapshot.val();
+				displayChatMessage(message.name, message.text);
+
+				document.getElementById("#thingamajigger").text = message.lid;
 			});
     	</script>
     	<p id = "thingamajigger">Can I display lid here?</p>
