@@ -32,7 +32,7 @@
       });
       myDataRef.on('child_changed', function(snapshot) {
         var message = snapshot.val();
-        displayChatMessage(message.name, message.text);
+        displayChatMessage(message.name.val(), message.text.val());
         document.getElementById("#stuff").text(text) = message.name + ": " + message.text;
       });
       function displayChatMessage(name, text) {
