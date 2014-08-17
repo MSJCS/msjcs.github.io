@@ -17,7 +17,7 @@
           var text = $('#messageInput').val();
           var lid = $('#lid').val();
           myDataRef.set({name: name, text: text, lid:lid});
-          $('#messageInput').reset();
+          $('#messageInput').text = ' ';
         }
       });
       $('#lid').keydown(function (e) {
