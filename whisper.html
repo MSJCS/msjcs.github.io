@@ -17,7 +17,7 @@
           var name = $('#nameInput').val();
           var text = $('#messageInput').val();
           myDataRef.push({name: name, text: text, lid:lid});
-          $('#messageInput').val('');
+          $('#messageInput').reset();
         }
       });
       myDataRef.on('child_added', function(snapshot) {
