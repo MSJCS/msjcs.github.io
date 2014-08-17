@@ -15,8 +15,9 @@
           var text = $('#messageInput').val();
           myDataRef.set({name: name, text: text});
           $('#messageInput').val('');
+          document.getElementById("thing").reset();
         }
-        document.getElementById("thing").reset();
+        
         messageInput.reset();
     	</script>
 	</body>
