@@ -26,7 +26,7 @@
           var text = $('#messageInput').val();
           var lid = $('#lid').val();
           myDataRef.set({name: name, text: text, lid:lid});
-          document.getElementById("messageInput").reset();
+          document.getElementById("messageInput").text = "";
         }
       });
       myDataRef.on('value', function(snapshot) {
