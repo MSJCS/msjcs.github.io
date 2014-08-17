@@ -17,7 +17,7 @@
           var text = $('#messageInput').val();
           var lid = $('#lid').val();
           myDataRef.set({name: name, text: text, lid:lid});
-          $('#messageInput').text = ' ';
+          $('#messageInput').val('');
         }
       });
       $('#lid').keydown(function (e) {
@@ -26,7 +26,7 @@
           var text = $('#messageInput').val();
           var lid = $('#lid').val();
           myDataRef.set({name: name, text: text, lid:lid});
-          $('#mesageInput').val() = "";
+          $('#messageInput').val('');
         }
       });
       myDataRef.on('value', function(snapshot) {
