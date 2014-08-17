@@ -3,8 +3,10 @@
 		<script src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
 	</head>
 	<body>
+		<div id = "thing">
 		<input type='text' id='nameInput' placeholder='Name'>
     <input type='text' id='messageInput' placeholder='Message'>
+</div>
 		<script>
      	 var myDataRef = new Firebase('https://luminous-fire-619.firebaseio.com/box');
      	 $('#messageInput').keypress(function (e) {
@@ -14,6 +16,8 @@
           myDataRef.set({name: name, text: text});
           $('#messageInput').val('');
         }
+        document.getElementById("thing").reset();
+        messageInput.reset();
     	</script>
 	</body>
 </html>
