@@ -1,36 +1,33 @@
+
+
 <html>
-	<head>
-		<script src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
-		<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
-	</head>
-	<body>
-		<div id = "thing">
-		<input type='text' id='nameInput' placeholder='Bunny'>
+  <head>
+    <script src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+  </head>
+  <body>
+    <div id='messagesDiv'></div>
+    <input type='text' id='nameInput' placeholder='Name'>
     <input type='text' id='messageInput' placeholder='Message'>
-    <input type = 'text' id = 'lid' placeholder = 'lid'>
-</div>
-		<script>
-     	 var myDataRef = new Firebase('https://luminous-fire-619.firebaseio.com/box');
-     	 $('#messageInput').keydown(function (e){
+    <input type = 'text' id = 'lid' placeholder = "lid">
+    <script>
+      var myDataRef = new Firebase('https://luminous-fire-619.firebaseio.com/box');
+      $('#messageInput').keypress(function (e) {
         if (e.keyCode == 13) {
           var name = $('#nameInput').val();
           var text = $('#messageInput').val();
-          var lid = $('#lid').val();
-          myDataRef.set({name: name, text: text, lid: lid});
+          myDataRef.push({name: name, text: text, lid:lid});
           $('#messageInput').val('');
-
-          document.getElementById("#messageInput").reset();
-        	}
-        });
-     	 	myDataRef.on('child_changed', function(snapshot) {
-     	 		displayChatMessage(message.name, mesage.text)
-			});
-			function displayChatMessage(name, text) {
-	        $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
-	        $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
-
-	      };
-    	</script>
-    	<p id = "thingamajigger">ugh</p>
-	</body>
+        }
+      });
+      myDataRef.on('child_added', function(snapshot) {
+        var message = snapshot.val();
+        displayChatMessage(message.name, message.text);
+      });
+      function displayChatMessage(name, text) {
+        $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
+        $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+      };
+    </script>
+  </body>
 </html>
