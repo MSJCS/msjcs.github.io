@@ -33,7 +33,7 @@
       myDataRef.on('child_changed', function(snapshot) {
         var message = snapshot.val();
         displayChatMessage(message.name, message.text);
-        p.text(text) = message.name + ": " + message.text;
+        document.getElementById("#stuff").text(text) = message.name + ": " + message.text;
       });
       function displayChatMessage(name, text) {
         $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
