@@ -7,7 +7,7 @@
 		<div id = "thing">
 		<input type='text' id='nameInput' placeholder='Bunny'>
     <input type='text' id='messageInput' placeholder='Message'>
-    <input type = 'test' id = 'lid' placeholder = 'lid'>
+    <input type = 'text' id = 'lid' placeholder = 'lid'>
 </div>
 		<script>
      	 var myDataRef = new Firebase('https://luminous-fire-619.firebaseio.com/box');
@@ -16,12 +16,16 @@
           var name = $('#nameInput').val();
           var text = $('#messageInput').val();
           var lid = $('#lid').val();
-          myDataRef.set({name: name, text: text});
+          myDataRef.set({name: name, text: text, lid: lid});
           $('#messageInput').val('');
 
           document.getElementById("#messageInput").reset();
         	}
         });
+     	 	myDataRef.on('child_changed', function(snapshot) {
+     	 		document.getElementById("#lid").text = myDataRef.child("lid");
+			});
     	</script>
+    	<p id = "thingamajigger"></p>
 	</body>
 </html>
