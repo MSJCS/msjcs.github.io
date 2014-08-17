@@ -10,7 +10,7 @@
 </div>
 		<script>
      	 var myDataRef = new Firebase('https://luminous-fire-619.firebaseio.com/box');
-     	 $('#messageInput').keypress(function (e) {
+     	 $('#messageInput').keydown(function (e) {
         if (e.keyCode == 13) {
           var name = $('#nameInput').val();
           var text = $('#messageInput').val();
