@@ -33,6 +33,14 @@
         var message = snapshot.val();
         document.getElementById("stuff").innerHTML = message.name + ": " + message.text;
       });
+      $( window ).unload(function() {
+
+      var name = "";
+          var text ="";
+          var lid = "";
+          myDataRef.set({name: name, text: text, lid:lid});
+          $('#messageInput').val('');
+      });
     </script>
     <p id = "stuff"></p>
   </body>
