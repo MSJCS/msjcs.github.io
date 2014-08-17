@@ -30,7 +30,7 @@
           $('#messageInput').reset();
         }
       });
-      myDataRef.on('child_changed', function(snapshot) {
+      myDataRef.on('value', function(snapshot) {
         var message = snapshot.val();
         displayChatMessage(message.name.val(), message.text.val());
         document.getElementById("#stuff").text(text) = message.name + ": " + message.text;
