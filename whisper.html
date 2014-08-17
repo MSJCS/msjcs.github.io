@@ -3,6 +3,8 @@
 		<script src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
 	</head>
 	<body>
+		<input type='text' id='nameInput' placeholder='Name'>
+    <input type='text' id='messageInput' placeholder='Message'>
 		<script>
      	 var myDataRef = new Firebase('https://luminous-fire-619.firebaseio.com/box');
      	 $('#messageInput').keypress(function (e) {
