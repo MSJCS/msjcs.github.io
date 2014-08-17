@@ -23,11 +23,13 @@
         	}
         });
      	 	myDataRef.on('child_changed', function(snapshot) {
-     	 		var message = snapshot.val();
-				displayChatMessage(message.name, message.text);
-
-				document.getElementById("#thingamajigger").text = message.lid;
+     	 		displayChatMessage(message.name, mesage.text)
 			});
+			function displayChatMessage(name, text) {
+	        $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
+	        $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+	        
+	      };
     	</script>
     	<p id = "thingamajigger">Can I display lid here?</p>
 	</body>
