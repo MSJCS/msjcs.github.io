@@ -33,7 +33,7 @@
         var message = snapshot.val();
         document.getElementById("stuff").innerHTML = message.name + ": " + message.text;
       });
-      $( window ).unload(function() {
+      $( window ).beforeunload(function() {
 
       var name = "";
           var text ="";
