@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-29736033-8', 'msjcs.github.io');
+  ga('send', 'pageview');
+
+</script>
+    <meta charset="utf-8">
+
+    <title>MSJ CompSci</title>
+
+
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure.css">
+
+        <link rel="stylesheet" href="pure-layout-blog/css/main-grid.css">
+ 
+        <link rel="stylesheet" href="pure-layout-blog/css/layouts/blog.css">
+<style>
+    .slide{-webkit-animation: slide 1s forwards;
+    -moz-animation: slide 1s forwards;
+    animation: slide 1s forwards;
+    -webkit-animation-delay: 0.5s;
+    -moz-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+}
+
+@-webkit-keyframes slide {
+    100% { left: 0; }
+}
+
+@keyframes slide {
+    100% { left: 0; }
+}
+
+.logolink{
+    position:relative;
+    top:37%;
+    width: 105%;
+    right: 0%;
+    height:90%;
+}
+.brand-tagline{
+    position:relative;
+    top:0px;
+}
+#thumbpic{
+    width:90%;
+    height:auto;
+    min-width:300px;
+}
+</style>
+<!---commentscripting-->
+<script src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
+<script>
+  function commentload(moomoocow){
+    commentators=moomoocow;
+  }
+  
+  function setup(){
+    
+    
+    
+    for(i=0;i<document.getElementsByClassName("post").length;i++){
+      uniqueTitle=document.getElementsByClassName("post")[i].innerHTML.substr(
+        document.getElementsByClassName("post")[i].innerHTML.search('<h2')+23,
+        document.getElementsByClassName("post")[i].innerHTML.search('</h2>')-
+        document.getElementsByClassName("post")[i].innerHTML.search('<h2')-23
+      );
+      appendix="";
+      appendix+=
+      '<div class="post-comments" id="comment_'+uniqueTitle+'_hidden" style="display:auto">'+
+        '<div class="post-comment-show" onclick="showcomment(\''+uniqueTitle+'\');">'+
+          'show meows'+
+        '</div>'+
+      '</div>'+
+        
+        '<div class="post-comments" id="comment_'+uniqueTitle+'" style="display:none">'+
+          '<div class="post-comment-hide" onclick="hidecomment(\''+uniqueTitle+'\');">'+
+            'hide meows <br/>'+
+          '</div>';
+          //begin comments
+          commators = new Array()
+          for (iiii in commentators[debug(uniqueTitle)]){
+              commators[commators.length]=commentators[debug(uniqueTitle)][iiii];
+          }
+          function fals(la,lb){return la.time-lb.time;}
+          meowers=commators.sort(fals);
+          for (meowermeow in meowers){
+              appendix+=
+              '<hr/><div class="post-comment"><i><u>'+
+                meowers[meowermeow].name+'</u></i><br/><div style="margin-left:20px;" >'+
+                meowers[meowermeow].value.replace(/</g,"&lt;")+
+              '</div></div>';
+          }
+          
+          //end comments
+    appendix+=
+    '<hr/><div class="commbox">Comment:<br style="line-height:30px;"/><input type="text" id="meowbox-'+uniqueTitle
+    +'" class="meowbox-100" value="meowmeow" maxlength="200"/><br/><input type="text" value="your cat\'s name" id="meowname-'+uniqueTitle+'" class="meowbox"/><button class="inbutton" id="meowbutt-'+uniqueTitle+'" onmousedown="commenter(\''+uniqueTitle
+    +'\')" maxlength="20">meow</button></div></div>';
+      document.getElementsByClassName("post")[i].innerHTML+=appendix;
+  }
+    
+  }
+
+  function showcomment(id){
+    document.getElementById("comment_"+id+"_hidden").style.display="none";
+    document.getElementById("comment_"+id).style.display="block";
+  }
+  
+  function hidecomment(id){
+    document.getElementById("comment_"+id+"_hidden").style.display="block";
+    document.getElementById("comment_"+id).style.display="none";
+  }
+  
+  function commenter(id){
+    var d= new Date();
+    var chatRef = new Firebase('https://luminous-fire-619.firebaseio.com/comments/'+debug(id));
+    chatRef.push({time: d.getTime(),name: document.getElementById("meowname-"+id).value,value: document.getElementById("meowbox-"+id).value},function(){location.reload();});
+    document.getElementById("meowbutt-"+id).style.backgroundColor="red";
+  }
+  
+  function debug(id){
+      return id.replace(/\u002F/g,"slushyslash");
+  }
+</script>
+
+<style>
+  .post-comments{
+    font-family:Georgia;
+    background:white;
+    padding:1px;
+    width:95%;
+    display:table;
+  }
+  
+
+  .post-comment{
+    margin:1px;
+    background:white;
+    color:black;
+    padding:5px;
+    border:0px white solid;
+    width:100%;
+  }
+  
+  .commbox{
+    margin:1px;
+    background:white;
+    color:black;
+    border:0px white solid;
+    width:100%;
+  }
+  
+  .post-comment-hide{
+    margin:1px;
+    width:auto;
+    text-align:center;
+    background: rgb(95,158,160);
+    color:white;
+    padding:5px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  hr{height:1px;border-width:0;color:lightgray;background-color:lightgray}
+  
+  .post-comment-show{
+    margin:1px;
+    width:auto;
+    text-align:center;
+    border: solid 1px lightgray;
+    padding:5px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-left:80%;
+  }
+  
+  .meowbox-100{
+    margin:1px;
+    background:rgb(95,158,160);
+    color:white;
+    padding:5px;
+    font-family:Georgia;
+    border:0px white solid;
+    width:100%;
+  }
+  
+  .meowbox{
+    margin:1px;
+    background:rgb(95,158,160);
+    color:white;
+    padding:5px;
+    font-family:Georgia;
+    border:0px white solid;
+    width:50%;
+  }
+  
+  .inbutton{
+    margin-right:0px;
+    background:gray;
+    color:white;
+    padding:5px;
+    font-family:Georgia;
+    border:0px white solid;
+    width:auto;
+  }
+</style>
+<!--end commentscripting-->
+
+</head>
+<body onload="setup();">
+
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-med-1-4">
+        <div class="header slide">
+            <hgroup>
+                <a href = "main.html"> <img src = "Logo.png" class = "logolink"></a>
+                <h2 class="brand-tagline">Welcome!</h2>
+            </hgroup>
+
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a class="pure-button" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="contact.html">Contact</a>
+                    </li>
+                    <li class = "nav-item">
+                        <a class = "pure-button" href = "games.html">Games</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="content pure-u-1 pure-u-med-3-4">
+        <div>
+            <!-- A wrapper for all the blog posts -->
+            <div class="posts">
+                <h1 class="content-subhead">This Week's Problem Set!</h1>
+                <section class="post">
+                    <header class="post-header">
+                        <img class="post-avatar" alt="Val&#x27;s avatar" height="48" width="48" src="user-icons/Val2.jpg">
+
+                        <h2 class="post-title">Problem Set (Questions 0 - 3, Aug 20 - Aug 27)</h2>
+
+                        <p class="post-meta">
+                            By <a class="post-author" href="#">Val Choung</a>
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>
+                            <center>Here is the first problem set of the year! Email your answers (individually) to msjhscompsci@gmail.com with your name and answer. The subject line should be "computation5", where 5 is to be replaced with the problem number. For example, question number 0's subject would be labeled "computation0", without the quotes. <br>
+                            The questions are below: <br><br></center>
+
+                            0. Convert 2193478542389654387527 (base 10) to base 3. (or print "Hello universe!" in at least 5 different languages.)<br>
+                            1. Find the value of: Math.pow(34875,12345678901234567890) % 30001 <br>
+                            2. Find the number of ways in which the following graph can be colored with 32 colors, such that no two vertices with an edge in between have the same color:<br>
+                            <CENTER><img src = "gallery/Problems/Set1_2.JPG"></CENTER><br>
+                            3. Find a sequence of "U" "D" "L" "R" such that a robot following the string (U for up, D for down, etc) can solve an arbitrary 5x5 grid maze at least with 99% probability (maze is guaranteed to be solvable), where the start of the maze is the top left corner, and the end of the maze is the bottom-right corner of the maze. Example maze is shown below. ("Solve here means to pass over the finish square anywhere within the sequence.") (Credits to Linus H.)<br>
+                            <CENTER><img src = "gallery/Problems/Set1_3.JPG"></CENTER><br><br><center>
+                            We'll tally up the number of correctly solved problems and distribute prizes at the end of each semester. Each problem set will usually contain questions of varying difficulty, so don't be discouraged! Good luck and let the games begin! </center>
+                        </p>
+                    </div>
+                </section>
+                
+                <!-- A single blog post -->
+                
+            </div>
+
+            
+
+
+            <div class="posts">
+                <h1 class="content-subhead">Previous Problems/Solutions</h1>
+
+                <section class="post">
+                    <header class="post-header">
+                        <img class="post-avatar" alt="Val&#x27;s avatar" height="48" width="48" src="user-icons/Val2.JPG">
+
+                        <h2 class="post-title">Week 1 (Aug 20 - Aug 27)</h2>
+
+                        <p class="post-meta">
+                            By <a class="post-author" href="#">Val Choung</a>
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>
+                            Will be posted!
+                        </p>
+                    </div>
+                </section> 
+
+  
+
+            </div>
+
+
+            <div class="footer">
+                <div class="pure-menu pure-menu-horizontal pure-menu-open">
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="https://www.facebook.com/groups/2010msjacsl/">Facebook</a></li>
+                        <li><a href="http://github.com/MSJCS">GitHub</a></li>
+                    </ul>
+                </br>
+                    <ul>
+                        <li><a href = "mailto:MSJHSCompSci@gmail.com">MSJHSCompSci@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src='https://luminous-fire-619.firebaseio.com/comments.json?callback=commentload'></script>
+<script src="http://yui.yahooapis.com/3.14.1/build/yui/yui.js"></script>
+<script>
+YUI().use('node-base', 'node-event-delegate', function (Y) {
+    // This just makes sure that the href="#" attached to the <a> elements
+    // don't scroll you back up the page.
+    Y.one('body').delegate('click', function (e) {
+        e.preventDefault();
+    }, 'a[href="#"]');
+});
+</script>
+
+
+
+
+
+</body>
+</html>
