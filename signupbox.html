@@ -103,7 +103,7 @@
       function submit(){
         document.getElementById("butte").style.backgroundColor="gray";
         document.getElementById("butte").style.color="white";
-        var chatRef = new Firebase('https://luminous-fire-619.firebaseio.com/signups');
+        var chatRef = new Firebase('https://supercow.firebaseio.com/signups');
         chatRef.push({
               email: document.getElementById("form-email").value,
               name: document.getElementById("form-name").value,
