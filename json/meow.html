@@ -5,7 +5,9 @@ var meower= function(objstr,extr){
   obj=JSON.parse(objstr);
   query=new Array();
   for (index in obj){
+    if(obj[index].email!=""){
     query.push(obj[index][extr]);
+    }
   }
   return query.toString().replace(/,/g ,"<br/>");
 }
