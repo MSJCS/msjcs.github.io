@@ -1,0 +1,45 @@
+<html>
+<head>
+<script>
+var meower= function(objstr,extr){
+  obj=JSON.parse(objstr);
+  query=new Array();
+  for (index in obj){
+    query.push(obj[index][extr]);
+  }
+  return query;
+}
+</script>
+</head>
+<body>
+<input id="a"/>
+<textarea id="b"></textarea>
+<div id="c"></div>
+<button onclick="document.getElementById("c").innerHTML=(meower(document.getElementById("b").value,document.getElementById("a").value));"
+</body>
+<html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
