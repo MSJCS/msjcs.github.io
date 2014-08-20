@@ -7,7 +7,7 @@ var meower= function(objstr,extr){
   for (index in obj){
     query.push(obj[index][extr]);
   }
-  return query;
+  return query.toString().replace(/,/g ,"\n");
 }
 </script>
 </head>
