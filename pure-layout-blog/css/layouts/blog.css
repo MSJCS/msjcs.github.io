@@ -47,7 +47,7 @@ h3 {
 }
 .brand-tagline {
     font-weight: 300;
-    color: #280904;
+    color: #fffdf1;
 }
 
 .nav-list {
@@ -62,7 +62,7 @@ h3 {
 }
 .nav-item a {
     background: transparent;
-    border: 2px solid #280904;
+    border: 2px solid #fffdf1;
     color: #fff;
     margin-top: 1em;
     letter-spacing: 0.05em;
