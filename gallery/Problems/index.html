@@ -1,0 +1,37 @@
+<html>
+<head>
+<script>
+var f=function(e){
+  var a=document.getElementById("txbox0").value;
+  var b=document.getElementById("txbox1").value;
+  var c=document.getElementById("txbox2").value;
+  
+  var k=a+b-c;
+  for (i=0;i<100;i++){
+    k=g(k);
+    k=k-c;
+  }
+  
+}
+
+var g=function(mhm){
+  /*your job is to replace this comment with some lines of code that
+  doesn't use the html objects in anyways. This means no using 
+  document, window, etc, and no direct access of the textboxes or anything.
+  You can only use mhm and other variables you define.
+  */
+}
+
+</script>
+</head>
+<body>
+<h1>JAVASCRIPT!!!!</h1>
+<button onclick="f(event);" >Click Here!</button>
+<input type="text" id="txbox0"/>
+<input type="text" id="txbox1"/>
+<input type="text" id="txbox2"/>
+
+<div id="hi" style="background:red">a</div>
+
+</body>
+</html>
