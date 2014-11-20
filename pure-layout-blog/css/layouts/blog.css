@@ -6,7 +6,7 @@
 
 a {
     text-decoration: none;
-    color: rgb(61, 146, 201);
+    color: #312829;
 }
 a:hover,
 a:focus {
@@ -71,7 +71,7 @@ h3 {
 }
 .nav-item a:hover,
 .nav-item a:focus {
-    border: 2px solid rgb(61, 146, 201);
+    border: 2px solid #312829;
     text-decoration: none;
 }
 
