@@ -19,18 +19,9 @@
           var lid = $('#lid').val();
           myDataRef.set({name: name, text: text, lid:lid});
           $('#messageInput').val('');
-          document.cookie="username="+name;
         }
       });
-      $('#lid').keydown(function (e) {
-        if (e.keyCode == 13) {
-          var name = $('#nameInput').val();
-          var text = $('#messageInput').val();
-          var lid = $('#lid').val();
-          myDataRef.set({name: name, text: text, lid:lid});
-          $('#messageInput').val('');
-        }
-      });
+
       myDataRef.on('value', function(snapshot) {
         var message = snapshot.val();
         document.getElementById("stuff").innerHTML = message.name + ": " + message.text;
