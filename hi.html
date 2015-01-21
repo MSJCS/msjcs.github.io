@@ -90,7 +90,12 @@
           $('#messageInput').val('');
         }
       });
-
+      lid = $('#lidInput').val();
+            if (lid == "valerie"){
+            myDataRef = new Firebase('https://supercow.firebaseio.com/box2');
+            }else{
+              myDataRef = new Firebase("https://supercow.firebaseio.com/box");
+            }
       myDataRef.on('value', function(snapshot) {
         var message = snapshot.val();
         document.getElementById("stuff").innerHTML = message.name + ": " + message.text;
