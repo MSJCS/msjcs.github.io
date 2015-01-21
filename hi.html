@@ -103,21 +103,7 @@
               secondref = new Firebase('https://supercow.firebaseio.com/box2');
               firstref = new Firebase("https://supercow.firebaseio.com/box");
             }
-      firstref.on('value', function(snapshot) { 
-        if (firstref == myDataRef){
-            var message = snapshot.val();
-            document.getElementById("stuff").innerHTML = message.name + ": " + message.text;
-          });
-          $( window ).onbeforeunload(function() {
-
-          var name = "";
-              var text ="";
-          
-              myDataRef.set({name: name, text: text});
-              $('#messageInput').val('');
-        }
-      });secondref.on('value', function(snapshot) { 
-        if (secondref == myDataRef){
+      myDataRef.on('value', function(snapshot) { 
             var message = snapshot.val();
             document.getElementById("stuff").innerHTML = message.name + ": " + message.text;
           });
