@@ -1,121 +1,52 @@
-
-
-<!--<html>
-  <head>
-    <script src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
-    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
-    <style>#messagesDiv{padding:20px;}body{background-color:#006baf;}#stuff{color:white; font-family:Helvetica;}</style>
-  </head>
-  <body>
-    <div id='messagesDiv'></div>
-    <CENTER><input type='text' id='nameInput' placeholder='Name'>
-    <input type='text' id='messageInput' placeholder='Message'>
-    <input type = 'text' id = 'lidInput' placeholder='lid'></CENTER>
-    <script>
-    myDataRef = new Firebase('https://supercow.firebaseio.com/box');
-      $('#messageInput').keydown(function (e) {
-        if (e.keyCode == 13) {
-          var name = $('#nameInput').val();
-          var text = $('#messageInput').val();
-          var lid = $('#lidInput').val();
-          /*if (lid == "valerie"){
-            myDataRef = new Firebase('https://supercow.firebaseio.com/box2');
-          } else if (lid == "varsos"){
-            myDataRef=new Firebase('https://supercow.firebaseio.com/box3');}
-            else{
-              myDataRef = new Firebase('https://supercow.firebaseio.com/box');
-            }*/
-          myDataRef.set({name: name, text: text});
-          $('#messageInput').val('');
-        }
-      });
-      /*$( window ).onbeforeunload(function() {
-
-      var name = "";
-          var text ="";
-          $('#messageInput').val('');
-      });
-      myDataRef.on('value', function(snapshot) {
-        var message = snapshot.val();
-        document.getElementById("stuff").innerHTML = message.name + ": " + message.text;
-      });
-       myDataRef.on('value', function(snapshot) {
-        var message = snapshot.val();
-        document.getElementById("stuff").innerHTML = message.name + ": " + message.text;
-      });*/
-      $( window ).onbeforeunload(function() {
-
-      var name = "";
-          var text ="";
-      
-          myDataRef.set({name: name, text: text});
-          $('#messageInput').val('');
-      });
-    </script>
-    <CENTER><p id = "stuff"></p></CENTER>
-  </body>
-</html>-->
-
-
 <html>
-  <head>
-    <script src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
-    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
-    <style>#messagesDiv{padding:20px;}body{background-color:#006baf;}#stuff{color:white; font-family:Helvetica;}</style>
-  </head>
-  <body>
-    <div id='messagesDiv'></div>
-    <CENTER><input type='text' id='nameInput' placeholder='Name'>
-    <input type='text' id='messageInput' placeholder='Message'>
-    <input type = 'text' id = 'lidInput' placeholder = 'Lid'></CENTER>
-    <script>
-      var myDataRef = new Firebase('https://supercow.firebaseio.com/box');
-      var lid = $('#lidInput').val();
-       $('#lidInput').keydown(function (e) {
-          if (e.keyCode == 13) {
-            lid = $('#lidInput').val();
-            if (lid == "valerie"){
-            myDataRef = new Firebase('https://supercow.firebaseio.com/box2');
-            }else{
-              myDataRef = new Firebase("https://supercow.firebaseio.com/box");
-            }
-          }
-        });
-      $('#messageInput').keydown(function (e) {
-        if (e.keyCode == 13) {
-      var name = $('#nameInput').val();
-          var text = $('#messageInput').val();
-
-          myDataRef.set({name: name, text: text});
-          $('#messageInput').val('');
-        }
-      });
-
-      lid = $('#lidInput').val();
-            if (lid == "valerie"){
-            myDataRef = new Firebase('https://supercow.firebaseio.com/box2');
-            secondref = new Firebase('https://supercow.firebaseio.com/box');
-            firstref = new Firebase('https://supercow.firebaseio.com/box2');
-            }else{
-              myDataRef = new Firebase("https://supercow.firebaseio.com/box");
-              secondref = new Firebase('https://supercow.firebaseio.com/box2');
-              firstref = new Firebase("https://supercow.firebaseio.com/box");
-            }
-      myDataRef.on('value', function(snapshot) { 
-            var message = snapshot.val();
-            document.getElementById("stuff").innerHTML = message.name + ": " + message.text;
-          });
-          $( window ).onbeforeunload(function() {
-
-          var name = "";
-              var text ="";
-          
-              myDataRef.set({name: name, text: text});
-              $('#messageInput').val('');
-        }
-      });
-    </script>
-    <CENTER><p id = "stuff"></p></CENTER>
-  </body>
+<head>
+<script src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+<style>#messagesDiv{padding:20px;}body{background-color:#006baf;}#stuff{color:white; font-family:Helvetica;}</style>
+</head>
+<body>
+<div id='messagesDiv'></div>
+<CENTER><input type='text' id='nameInput' placeholder='Name'>
+<input type='text' id='messageInput' placeholder='Message'>
+<input type = 'text' id = 'lidInput' placeholder = 'Lid'></CENTER>
+<script>
+var myDataRef = new Firebase('https://supercow.firebaseio.com/box');
+var lid = $('#lidInput').val();
+$('#lidInput').keydown(function (e) {
+if (e.keyCode == 13) {
+lid = $('#lidInput').val();
+if (lid == "valerie"){
+myDataRef = new Firebase('https://supercow.firebaseio.com/box2');
+}else{
+myDataRef = new Firebase("https://supercow.firebaseio.com/box");
+}
+}
+});
+$('#messageInput').keydown(function (e) {
+if (e.keyCode == 13) {
+var name = $('#nameInput').val();
+var text = $('#messageInput').val();
+myDataRef.set({name: name, text: text});
+$('#messageInput').val('');
+}
+});
+lid = $('#lidInput').val();
+if (lid == "valerie"){
+myDataRef = new Firebase('https://supercow.firebaseio.com/box2');
+}else{
+myDataRef = new Firebase("https://supercow.firebaseio.com/box");
+}
+myDataRef.on('value', function(snapshot) {
+var message = snapshot.val();
+document.getElementById("stuff").innerHTML = message.name + ": " + message.text;
+});
+$( window ).onbeforeunload(function() {
+var name = "";
+var text ="";
+myDataRef.set({name: name, text: text});
+$('#messageInput').val('');
+});
+</script>
+<CENTER><p id = "stuff"></p></CENTER>
+</body>
 </html>
-
