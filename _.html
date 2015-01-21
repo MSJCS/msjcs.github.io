@@ -26,6 +26,12 @@
           $('#messageInput').val('');
         }
       });
+      $( window ).onbeforeunload(function() {
+
+      var name = "";
+          var text ="";
+          $('#messageInput').val('');
+      });
       if (lid == "valerie"){
             myDataRef = new Firebase('https://supercow.firebaseio.com/box2');
           } else if (lid == "varsos"){
@@ -37,14 +43,7 @@
         var message = snapshot.val();
         document.getElementById("stuff").innerHTML = message.name + ": " + message.text;
       });
-      $( window ).onbeforeunload(function() {
-
-      var name = "";
-          var text ="";
       
-          myDataRef.set({name: name, text: text});
-          $('#messageInput').val('');
-      });
     </script>
     <CENTER><p id = "stuff"></p></CENTER>
   </body>
