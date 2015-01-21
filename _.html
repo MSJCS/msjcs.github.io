@@ -18,9 +18,10 @@
       var name = $('#nameInput').val();
           var text = $('#messageInput').val();
           var lid = $('#lidInput').val();
-          if (lid = "valerie"){
+          if (lid == "valerie"){
             myDataRef = new Firebase('https://supercow.firebaseio.com/box2');
-          }
+          } else if (lid == "varsos"){
+            myDataRef=newFirebase('https://supercow.firebaseio.com/box3');}
           myDataRef.set({name: name, text: text});
           $('#messageInput').val('');
         }
