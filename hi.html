@@ -90,23 +90,45 @@
           $('#messageInput').val('');
         }
       });
+
       lid = $('#lidInput').val();
+      var secondref;
+      var firstref;
             if (lid == "valerie"){
             myDataRef = new Firebase('https://supercow.firebaseio.com/box2');
+            secondref = new Firebase('https://supercow.firebaseio.com/box');
+            firstref = new Firebase('https://supercow.firebaseio.com/box2');
             }else{
               myDataRef = new Firebase("https://supercow.firebaseio.com/box");
+              secondref = new Firebase('https://supercow.firebaseio.com/box2');
+              firstref = new Firebase("https://supercow.firebaseio.com/box");
             }
-      myDataRef.on('value', function(snapshot) {
-        var message = snapshot.val();
-        document.getElementById("stuff").innerHTML = message.name + ": " + message.text;
-      });
-      $( window ).onbeforeunload(function() {
+      firstref.on('value', function(snapshot) { 
+        if (firstref == myDataRef){
+            var message = snapshot.val();
+            document.getElementById("stuff").innerHTML = message.name + ": " + message.text;
+          });
+          $( window ).onbeforeunload(function() {
 
-      var name = "";
-          var text ="";
-      
-          myDataRef.set({name: name, text: text});
-          $('#messageInput').val('');
+          var name = "";
+              var text ="";
+          
+              myDataRef.set({name: name, text: text});
+              $('#messageInput').val('');
+        }
+      });secondref.on('value', function(snapshot) { 
+        if (secondref == myDataRef){
+            var message = snapshot.val();
+            document.getElementById("stuff").innerHTML = message.name + ": " + message.text;
+          });
+          $( window ).onbeforeunload(function() {
+
+          var name = "";
+              var text ="";
+          
+              myDataRef.set({name: name, text: text});
+              $('#messageInput').val('');
+        }
       });
     </script>
     <CENTER><p id = "stuff"></p></CENTER>
