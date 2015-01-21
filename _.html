@@ -29,7 +29,10 @@
       if (lid == "valerie"){
             myDataRef = new Firebase('https://supercow.firebaseio.com/box2');
           } else if (lid == "varsos"){
-            myDataRef=new Firebase('https://supercow.firebaseio.com/box3');}
+            myDataRef=new Firebase('https://supercow.firebaseio.com/box3');
+          }else{
+            myDataRef=new Firebase('https://supercow.firebaseio.com/box');
+          }
       myDataRef.on('value', function(snapshot) {
         var message = snapshot.val();
         document.getElementById("stuff").innerHTML = message.name + ": " + message.text;
