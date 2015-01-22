@@ -2,7 +2,79 @@
 <head>
 <script src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
-<style>#messagesDiv{padding:20px;}body{background-color:#006baf;}#stuff{color:white; font-family:Helvetica;}</style>
+<style>#messagesDiv{padding:20px;}body{background-color:#006baf;}#stuff{color:white; font-family:Helvetica;}
+  .floatLabel
+{
+  width:400px;
+  height:auto;
+  margin:20px auto;
+
+}
+label
+{
+ position:relative;
+ top:40px;
+ visibility:hidden;
+ z-index:-1;
+ display:block;
+ margin-top:15px;
+ color:#fff;
+ font-size:13px;
+}
+label.floated
+{
+visibility:visible;
+position:relative;
+animation:labelmove 0.4s forwards;
+-webkit-animation:labelmove 0.4s forwards;
+-moz-animation:labelmove 0.4s forwards;
+}
+
+@keyframes labelmove
+{
+from {top:40px;}
+to {top:0px;}
+}
+
+@-webkit-keyframes labelmove
+{
+from {top:40px;}
+to {top:0px;}
+}
+
+@-moz-keyframes labelmove
+{
+from {top:40px;}
+to {top:0px;}
+}
+
+input[type="text"]
+{
+height:40px;
+width:390px;;
+padding-left:10px;
+border:1px solid #e7e7e7;
+margin-top:5px;
+outline:0;
+z-index:1;
+background:#fff;
+}
+
+.float-button {
+  width: 100%;
+  height: 50px;
+  padding: 0;
+  font-size: 18px;
+  color: #fff;
+  text-align: center;
+  background: #f0776c;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer; 
+  outline:0;
+  margin-top:40px;
+}
+</style>
 </head>
 <body>
 <div id='messagesDiv'></div>
@@ -46,7 +118,17 @@ var text ="";
 myDataRef.set({name: name, text: text});
 $('#messageInput').val('');
 });
+$(function(){
+  $('.labelFloat').focus(function(){
+    $('.floatLabel label').removeClass('floated');
+    $(this).prev().addClass('floated');
+  });
+});
 </script>
 <CENTER><p id = "stuff"></p></CENTER>
+</br>
+<label> Enter your full name </label>
+  <input type="text" placeholder="FullName" class="labelFloat" />
+  
 </body>
 </html>
