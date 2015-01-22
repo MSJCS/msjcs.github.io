@@ -86,12 +86,12 @@ var myDataRef = new Firebase('https://supercow.firebaseio.com/box');
 var lid = $('#lidInput').val();
 $('#lidInput').keydown(function (e) {
 if (e.keyCode == 13) {
-lid = $('#lidInput').val();
-if (lid == "valerie"){
-myDataRef = new Firebase('https://supercow.firebaseio.com/box2');
-}else{
-myDataRef = new Firebase("https://supercow.firebaseio.com/box");
-}
+  lid = $('#lidInput').val();
+  if (lid == "valerie"){
+  myDataRef = new Firebase('https://supercow.firebaseio.com/box2');
+  }else{
+  myDataRef = new Firebase("https://supercow.firebaseio.com/box");
+  }$('#lidInput').val() = "";
 }
 });
 $('#messageInput').keydown(function (e) {
