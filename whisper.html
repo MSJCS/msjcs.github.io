@@ -1,40 +1,131 @@
-
-
 <html>
-  <head>
-    <script src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
-    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
-    <style>#messagesDiv{padding:20px;}body{background-color:#000082;}#stuff{color:white; font-family:Helvetica;}</style>
-  </head>
-  <body>
-    <div id='messagesDiv'></div>
-    <CENTER><input type='text' id='nameInput' placeholder='Name'>
-    <input type='text' id='messageInput' placeholder='Message'></CENTER>
-    <script>
-      var myDataRef = new Firebase('https://supercow.firebaseio.com/box');
-      $('#messageInput').keydown(function (e) {
-        if (e.keyCode == 13) {
-      var name = $('#nameInput').val();
-          var text = $('#messageInput').val();
+<head>
+<script src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+<style>#messagesDiv{padding:20px;}body{background-color:#FF9933;}#stuff{color:white; font-family:Helvetica;}
+  .floatLabel
+{
+  width:400px;
+  height:auto;
+  margin:20px auto;
 
-          myDataRef.set({name: name, text: text});
-          $('#messageInput').val('');
-        }
-      });
+}
+label
+{
+ position:relative;
+ top:40px;
+ visibility:hidden;
+ z-index:-1;
+ display:block;
+ margin-top:15px;
+ color:#fff;
+ font-size:13px;
+}
+label.floated
+{
+visibility:visible;
+position:relative;
+animation:labelmove 0.4s forwards;
+-webkit-animation:labelmove 0.4s forwards;
+-moz-animation:labelmove 0.4s forwards;
+}
 
-      myDataRef.on('value', function(snapshot) {
-        var message = snapshot.val();
-        document.getElementById("stuff").innerHTML = message.name + ": " + message.text;
-      });
-      $( window ).onbeforeunload(function() {
+@keyframes labelmove
+{
+from {top:40px;}
+to {top:0px;}
+}
 
-      var name = "";
-          var text ="";
-      
-          myDataRef.set({name: name, text: text});
-          $('#messageInput').val('');
-      });
-    </script>
-    <CENTER><p id = "stuff"></p></CENTER>
-  </body>
+@-webkit-keyframes labelmove
+{
+from {top:40px;}
+to {top:0px;}
+}
+
+@-moz-keyframes labelmove
+{
+from {top:40px;}
+to {top:0px;}
+}
+
+input[type="text"]
+{
+height:40px;
+width:390px;;
+padding-left:10px;
+border:1px solid #e7e7e7;
+margin-top:5px;
+outline:0;
+z-index:1;
+background:#fff;
+}
+
+.float-button {
+  width: 100%;
+  height: 50px;
+  padding: 0;
+  font-size: 18px;
+  color: #fff;
+  text-align: center;
+  background: #f0776c;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer; 
+  outline:0;
+  margin-top:40px;
+}
+</style>
+</head>
+<body>
+<div id='messagesDiv'></div>
+<CENTER>
+<input type='text' id='messageInput' placeholder='Message'>
+<input hidden type = 'text' id = 'lidInput' placeholder = 'Lid'></CENTER>
+<script>
+var myDataRef = new Firebase('https://supercow.firebaseio.com/box');
+var lid = $('#lidInput').val();
+$('#lidInput').keydown(function (e) {
+if (e.keyCode == 13) {
+  lid = $('#lidInput').val();
+  if (lid == "valerie"){
+  myDataRef = new Firebase('https://supercow.firebaseio.com/box2');
+  }else{
+  myDataRef = new Firebase("https://supercow.firebaseio.com/box");
+  }
+}
+});
+$('#messageInput').keydown(function (e) {
+if (e.keyCode == 13) {
+var text = $('#messageInput').val();
+myDataRef.set({name: name, text: text});
+$('#messageInput').val('');
+}
+});
+lid = $('#lidInput').val();
+if (lid == "valerie"){
+myDataRef = new Firebase('https://supercow.firebaseio.com/box2');
+}else{
+myDataRef = new Firebase("https://supercow.firebaseio.com/box");
+}
+myDataRef.on('value', function(snapshot) {
+var message = snapshot.val();
+document.getElementById("stuff").innerHTML = message.text;
+});
+$( window ).onbeforeunload(function() {
+var name = "";
+var text ="";
+myDataRef.set({text: text});
+$('#messageInput').val('');
+});
+$(function(){
+  $('.labelFloat').focus(function(){
+    $('.floatLabel label').removeClass('floated');
+    $(this).prev().addClass('floated');
+  });
+});
+</script>
+<CENTER><p id = "stuff"></p></CENTER>
+</br>
+
+</body>
 </html>
