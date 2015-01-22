@@ -78,7 +78,7 @@ background:#fff;
 </head>
 <body>
 <div id='messagesDiv'></div>
-<CENTER><input type='text' id='nameInput' placeholder='Name'>
+<CENTER>
 <input type='text' id='messageInput' placeholder='Message'>
 <input type = 'text' id = 'lidInput' placeholder = 'Lid'></CENTER>
 <script>
@@ -96,7 +96,6 @@ if (e.keyCode == 13) {
 });
 $('#messageInput').keydown(function (e) {
 if (e.keyCode == 13) {
-var name = $('#nameInput').val();
 var text = $('#messageInput').val();
 myDataRef.set({name: name, text: text});
 $('#messageInput').val('');
@@ -110,12 +109,12 @@ myDataRef = new Firebase("https://supercow.firebaseio.com/box");
 }
 myDataRef.on('value', function(snapshot) {
 var message = snapshot.val();
-document.getElementById("stuff").innerHTML = message.name + ": " + message.text;
+document.getElementById("stuff").innerHTML = message.text;
 });
 $( window ).onbeforeunload(function() {
 var name = "";
 var text ="";
-myDataRef.set({name: name, text: text});
+myDataRef.set({text: text});
 $('#messageInput').val('');
 });
 $(function(){
