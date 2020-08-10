@@ -222,13 +222,37 @@
   .post{
     font-family:"Arial";
   }
+    #ad{
+        position: fixed;
+        top: 30%;
+        left: 30%;
+        background-color: rgb(136, 6, 6);
+        z-index: 200;
+        width: 40%;
+        height: 40%;
+        text-align: center;
+        font-size: 1.8em;
+        border-radius: 0.5em;
+        color: white;
+    }
 </style>
 <!--end commentscripting-->
-
 </head>
 <body onload="setup();">
-
-
+<div id="ad">
+    <div style="overflow: auto;">
+        <button style="float: right; background-color: transparent; border-style: none" onclick="document.getElementById('ad').style.display = 'none';">
+            X
+        </button>
+    </div>
+    <div>
+        <p style="margin: 0; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px;">
+            Join Our Discord Group<br><br>
+            <a href="https://discord.com/invite/9hXt2b" style="color: white;">Here</a>
+        </p>
+    </div>
+    
+</div>
 <div id="layout" class="pure-g">
     <div class="sidebar pure-u-1 pure-u-med-1-4">
         <div class="header slide">
