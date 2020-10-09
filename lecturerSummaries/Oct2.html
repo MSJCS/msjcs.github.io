@@ -256,30 +256,19 @@
     <div class="content pure-u-1 pure-u-med-3-4">
         <div>
             <div class="posts">
-                <h1 class="content-subhead">Recent Posts</h1>
+                <h1 class="content-subhead">10/2 First Lecture Summary</h1>
                 <section class="post">
                     <header class="post-header">
                         <img class="post-avatar" alt="Angela&#x27;s avatar" height="48" width="48" src="../user-icons/Hao.jpg">
 
-                        <h2 class="post-title">MSJ CS Club CF contest solution</h2>
-
+                        <h2 class="post-title">Time complexity and Big O notation</h2>
                         <p class="post-meta">
-                            By <a class="post-author" href="#">Hao Chen</a>
+                            By <a class="post-author" href="#">Leo Cui</a>
                         </p>
                     </header>
                     <div class="post-description">
                         <p>
-                        <strong>Insertion Sort</strong><br>
-                         Since N is pretty small, we can simply brute force this. we can use an arraylist or a vector to hold the sorted array. At first, it is empty. For each number we read in, iterate over the arraylist in order and insert the number before the first element we encounter that is greater than the current number. <br><br>
-                        Here is the code: <a href="contest821/ProblemA.java">link</a>
-                        </p>
-                        
-                        <p>
-                        <strong>Queuing Up(B and C)</strong><br>
-                         Problem B and C are basically the same except for the range of data. For problem B, given that N is at most 100, we can use brute force to solve it. for each cow, we iterate over the cows before it in reverse order and keep track of the tallest cow we met. Thus, if we meet a cow taller than the tallest cow we have ever met, we update the tallest and add one to the number of cows that the current cow can see. This gives us a solution that has an O(n^2) time complexity<br><br><br>
-                         However, this solution will not work for problem C. We need to come up with a better approach. We can make an observation here: the list of height of cows that can be seen by a certain cow is always in decreasing order. this is easy to figure out because if a cow is shorter than another cow after it, it will be blocked by that cow. this reminds us of stack since we only have to add or remove the upmost element and we store the height of cows that are currently visible. Whenever we met a new cow, we want to add it to the stack because it's next cow will always be able to see it. However, we also want to delete the cows that are previously visible but now invisible from the stack. We can do this by keep comparing the upmost element with the current cow and see if it is shorter than the current cow. if it is, we remove it from the stack and keep comparing with the next. we repeat this process until the stack is empty or the upmost cow is taller than the current cow. In this way, as we are iterating over the inputs and adding them to the stack, the output for each cow is the size of the stack after the cow before it is added to the stack. In this way, we are able to maintain the number of cows that a cow can see. This gives us a solution with linear time complexity<br><br>
-                         As I said, problem C is only slightly harder than the previous two<br>
-                         Here is the code implementing the second approach: <a href="contest821/ProblemB.java">link</a>
+                            <a href="https://docs.google.com/presentation/d/1mE5ZOrmgaQTU-vr2dH0y8Rlb6fLEL4KaxOIy6f_NHAE/edit?usp=sharing">Here</a> is the link to the slide.
                         </p>
                     </div>
                 </section>

@@ -18,9 +18,9 @@
 
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure.css">
 
-        <link rel="stylesheet" href="../pure-layout-blog/css/main-grid.css">
+        <link rel="stylesheet" href="pure-layout-blog/css/main-grid.css">
  
-        <link rel="stylesheet" href="../pure-layout-blog/css/layouts/blog.css">
+        <link rel="stylesheet" href="pure-layout-blog/css/layouts/blog.css">
 <style>
     .slide{-webkit-animation: slide 1s forwards;
     -moz-animation: slide 1s forwards;
@@ -230,23 +230,23 @@
     <div class="sidebar pure-u-1 pure-u-med-1-4">
         <div class="header slide">
             <hgroup>
-                <a href = "../index.html"> <img src = "../Logo.png" class = "logolink"></a>
+                <a href = "index.html"> <img src = "Logo.png" class = "logolink"></a>
 
             </hgroup>
 
             <nav class="nav">
                 <ul class="nav-list">
                     <li class="nav-item">
-                        <a class="pure-button" href="../about.html">About</a>
+                        <a class="pure-button" href="about.html">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="pure-button" href="../contact.html">Contact</a>
+                        <a class="pure-button" href="contact.html">Contact</a>
                     </li>
                     <li class = "nav-item">
-                        <a class = "pure-button" href = "../games.html">Games</a>
+                        <a class = "pure-button" href = "games.html">Games</a>
                     </li>
                     <li class = "nav-item">
-                        <a class = "pure-button" href = "../posts.html">Lecture Summaries</a>
+                        <a class = "pure-button" href = "posts.html">Lecture Summaries</a>
                     </li>
                 </ul>
             </nav>
@@ -257,34 +257,44 @@
         <div>
             <div class="posts">
                 <h1 class="content-subhead">Recent Posts</h1>
+                
                 <section class="post">
                     <header class="post-header">
-                        <img class="post-avatar" alt="Angela&#x27;s avatar" height="48" width="48" src="../user-icons/Hao.jpg">
+                        <img class="post-avatar" alt="Angela&#x27;s avatar" height="48" width="48" src="user-icons/Hao.jpg">
 
-                        <h2 class="post-title">MSJ CS Club CF contest solution</h2>
+                        <h2 class="post-title"><a href="lecturerSummaries/Oct9.html">10/9 lecture summary: Basic data structures: Arrays, LinkedList, Queue and Stack</a></h2>
 
                         <p class="post-meta">
-                            By <a class="post-author" href="#">Hao Chen</a>
+                            By <a class="post-author" href="#">Hao Chen & Leo Cui</a>
                         </p>
                     </header>
                     <div class="post-description">
                         <p>
-                        <strong>Insertion Sort</strong><br>
-                         Since N is pretty small, we can simply brute force this. we can use an arraylist or a vector to hold the sorted array. At first, it is empty. For each number we read in, iterate over the arraylist in order and insert the number before the first element we encounter that is greater than the current number. <br><br>
-                        Here is the code: <a href="contest821/ProblemA.java">link</a>
-                        </p>
-                        
-                        <p>
-                        <strong>Queuing Up(B and C)</strong><br>
-                         Problem B and C are basically the same except for the range of data. For problem B, given that N is at most 100, we can use brute force to solve it. for each cow, we iterate over the cows before it in reverse order and keep track of the tallest cow we met. Thus, if we meet a cow taller than the tallest cow we have ever met, we update the tallest and add one to the number of cows that the current cow can see. This gives us a solution that has an O(n^2) time complexity<br><br><br>
-                         However, this solution will not work for problem C. We need to come up with a better approach. We can make an observation here: the list of height of cows that can be seen by a certain cow is always in decreasing order. this is easy to figure out because if a cow is shorter than another cow after it, it will be blocked by that cow. this reminds us of stack since we only have to add or remove the upmost element and we store the height of cows that are currently visible. Whenever we met a new cow, we want to add it to the stack because it's next cow will always be able to see it. However, we also want to delete the cows that are previously visible but now invisible from the stack. We can do this by keep comparing the upmost element with the current cow and see if it is shorter than the current cow. if it is, we remove it from the stack and keep comparing with the next. we repeat this process until the stack is empty or the upmost cow is taller than the current cow. In this way, as we are iterating over the inputs and adding them to the stack, the output for each cow is the size of the stack after the cow before it is added to the stack. In this way, we are able to maintain the number of cows that a cow can see. This gives us a solution with linear time complexity<br><br>
-                         As I said, problem C is only slightly harder than the previous two<br>
-                         Here is the code implementing the second approach: <a href="contest821/ProblemB.java">link</a>
+                            In this lecturer we discussed about some of the most basic data structures like arrays and linkedlist.
                         </p>
                     </div>
                 </section>
+                
+                <section class="post">
+                    <header class="post-header">
+                        <img class="post-avatar" alt="Angela&#x27;s avatar" height="48" width="48" src="user-icons/Hao.jpg">
+
+                        <h2 class="post-title"><a href="lecturerSummaries/Oct2.html">10/2 lecture summary: Time Complexity and Big O notation</a></h2>
+
+                        <p class="post-meta">
+                            By <a class="post-author" href="#">Hao Chen & Leo Cui</a>
+                        </p>
+                    </header>
+                    <div class="post-description">
+                        <p>
+                            In this lecturer we talked about time complexity and the Big O notation.
+                        </p>
+                    </div>
+                </section>
+                
             </div>
-            
+
+
             <div class="footer">
                 <div class="pure-menu pure-menu-horizontal pure-menu-open">
                     <ul>
@@ -292,7 +302,7 @@
                         <li><a href="https://www.facebook.com/groups/170424299658516/">Facebook</a></li>
                         <li><a href="http://github.com/MSJCS">GitHub</a></li>
                     </ul>
-                    <br>
+                </br>
                     <ul>
                         <li><a href = "mailto:MSJHSCompSci@gmail.com">MSJHSCompSci@gmail.com</a></li>
                     </ul>
@@ -312,10 +322,5 @@ YUI().use('node-base', 'node-event-delegate', function (Y) {
     }, 'a[href="#"]');
 });
 </script>
-
-
-
-
-
 </body>
 </html>
