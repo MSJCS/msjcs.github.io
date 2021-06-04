@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-29736033-8', 'msjcs.github.io');
+  ga('send', 'pageview');
+
+</script>
+    <meta charset="utf-8">
+
+    <title>MSJ CompSci</title>
+
+
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure.css">
+
+        <link rel="stylesheet" href="../pure-layout-blog/css/main-grid.css">
+ 
+        <link rel="stylesheet" href="../pure-layout-blog/css/layouts/blog.css">
+<style>
+    .slide{-webkit-animation: slide 1s forwards;
+    -moz-animation: slide 1s forwards;
+    animation: slide 1s forwards;
+    -webkit-animation-delay: 0.5s;
+    -moz-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+}
+
+@-webkit-keyframes slide {
+    100% { left: 0; }
+}
+
+@keyframes slide {
+    100% { left: 0; }
+}
+
+.logolink{
+    position:relative;
+    top:37%;
+    width: 105%;
+    right: 0%;
+    height:90%;
+}
+.brand-tagline{
+    position:relative;
+    top:0px;
+}
+#thumbpic{
+    width:90%;
+    height:auto;
+    min-width:300px;
+}
+</style>
+<!---commentscripting-->
+<script src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
+<script>
+  function commentload(moomoocow){
+    commentators=moomoocow;
+  }
+  
+  function setup(){
+    
+    
+    
+    for(i=0;i<document.getElementsByClassName("post").length;i++){
+      uniqueTitle=document.getElementsByClassName("post")[i].innerHTML.substr(
+        document.getElementsByClassName("post")[i].innerHTML.search('<h2')+23,
+        document.getElementsByClassName("post")[i].innerHTML.search('</h2>')-
+        document.getElementsByClassName("post")[i].innerHTML.search('<h2')-23
+      );
+      appendix="";
+      appendix+=
+      '<div class="post-comments" id="comment_'+uniqueTitle+'_hidden" style="display:auto">'+
+        '<div class="post-comment-show" onclick="showcomment(\''+uniqueTitle+'\');">'+
+          'show meows'+
+        '</div>'+
+      '</div>'+
+        
+        '<div class="post-comments" id="comment_'+uniqueTitle+'" style="display:none">'+
+          '<div class="post-comment-hide" onclick="hidecomment(\''+uniqueTitle+'\');">'+
+            'hide meows <br/>'+
+          '</div>';
+          //begin comments
+          commators = new Array()
+          for (iiii in commentators[debug(uniqueTitle)]){
+              commators[commators.length]=commentators[debug(uniqueTitle)][iiii];
+          }
+          function fals(la,lb){return la.time-lb.time;}
+          meowers=commators.sort(fals);
+          for (meowermeow in meowers){
+              appendix+=
+              '<hr/><div class="post-comment"><i><u>'+
+                meowers[meowermeow].name.replace(/</g,"&lt;")+'</u></i><br/><div style="margin-left:20px;" >'+
+                meowers[meowermeow].value.replace(/</g,"&lt;")+
+              '</div></div>';
+          }
+          
+          //end comments
+    appendix+=
+    '<hr/><div class="commbox">Comment:<br style="line-height:30px;"/><input type="text" id="meowbox-'+uniqueTitle
+    +'" class="meowbox-100" value="meowmeow" maxlength="200"/><br/><input type="text" value="your cat\'s name" id="meowname-'+uniqueTitle+'" class="meowbox"/><button class="inbutton" id="meowbutt-'+uniqueTitle+'" onmousedown="commenter(\''+uniqueTitle
+    +'\')" maxlength="20">meow</button></div></div>';
+      document.getElementsByClassName("post")[i].innerHTML+=appendix;
+  }
+    
+  }
+
+  function showcomment(id){
+    document.getElementById("comment_"+id+"_hidden").style.display="none";
+    document.getElementById("comment_"+id).style.display="block";
+  }
+  
+  function hidecomment(id){
+    document.getElementById("comment_"+id+"_hidden").style.display="block";
+    document.getElementById("comment_"+id).style.display="none";
+  }
+  
+  function commenter(id){
+    var d= new Date();
+    var chatRef = new Firebase('https://luminous-fire-619.firebaseio.com/comments/'+debug(id));
+    chatRef.push({time: d.getTime(),name: document.getElementById("meowname-"+id).value,value: document.getElementById("meowbox-"+id).value},function(){location.reload();});
+    document.getElementById("meowbutt-"+id).style.backgroundColor="red";
+  }
+  
+  function debug(id){
+      return id.replace(/\u002F/g,"slushyslash");
+  }
+</script>
+
+<style>
+  .post-comments{
+    font-family:Georgia;
+    background:white;
+    padding:1px;
+    width:95%;
+    display:table;
+  }
+  
+
+  .post-comment{
+    margin:1px;
+    background:white;
+    color:black;
+    padding:5px;
+    border:0px white solid;
+    width:100%;
+  }
+  
+  .commbox{
+    margin:1px;
+    background:white;
+    color:black;
+    border:0px white solid;
+    width:100%;
+  }
+  
+  .post-comment-hide{
+    margin:1px;
+    width:auto;
+    text-align:center;
+    background: rgb(95,158,160);
+    color:white;
+    padding:5px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  hr{height:1px;border-width:0;color:lightgray;background-color:lightgray}
+  
+  .post-comment-show{
+    margin:1px;
+    width:auto;
+    text-align:center;
+    border: solid 1px lightgray;
+    padding:5px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-left:80%;
+  }
+  
+  .meowbox-100{
+    margin:1px;
+    background:rgb(95,158,160);
+    color:white;
+    padding:5px;
+    font-family:Georgia;
+    border:0px white solid;
+    width:100%;
+  }
+  
+  .meowbox{
+    margin:1px;
+    background:rgb(95,158,160);
+    color:white;
+    padding:5px;
+    font-family:Georgia;
+    border:0px white solid;
+    width:50%;
+  }
+  
+  .inbutton{
+    margin-right:0px;
+    background:gray;
+    color:white;
+    padding:5px;
+    font-family:Georgia;
+    border:0px white solid;
+    width:auto;
+  }
+  .post{
+    font-family:"Arial";
+  }
+</style>
+<!--end commentscripting-->
+
+</head>
+<body onload="setup();">
+
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-med-1-4">
+        <div class="header slide">
+            <hgroup>
+                <a href = "../index.html"> <img src = "../Logo.png" class = "logolink"></a>
+
+            </hgroup>
+
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a class="pure-button" href="../about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="../contact.html">Contact</a>
+                    </li>
+                    <li class = "nav-item">
+                        <a class = "pure-button" href = "../games.html">Games</a>
+                    </li>
+                    <li class = "nav-item">
+                        <a class = "pure-button" href = "../posts.html">Lecture Summaries</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="content pure-u-1 pure-u-med-3-4">
+        <div>
+            <div class="posts">
+                <h1 class="content-subhead">Lectures on DD/MM/YYYY</h1>
+                <section class="post">
+                    <header class="post-header">
+                        <img class="post-avatar" alt="Angela&#x27;s avatar" height="48" width="48" src="../user-icons/Hao.jpg">
+
+                        <h2 class="post-title">Lecture Topic Title</h2>
+
+                        <p class="post-meta">
+                            By <a class="post-author" href="#">Name here</a>
+                        </p>
+                    </header>
+                    <div class="post-description">
+                        <p>
+                            some description here. something something some more things.......
+                        </p>
+                    </div>
+                </section>
+            </div>
+
+
+            <div class="footer">
+                <div class="pure-menu pure-menu-horizontal pure-menu-open">
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="https://www.facebook.com/groups/170424299658516/">Facebook</a></li>
+                        <li><a href="http://github.com/MSJCS">GitHub</a></li>
+                    </ul>
+                <br>
+                    <ul>
+                        <li><a href = "mailto:MSJHSCompSci@gmail.com">MSJHSCompSci@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src='https://luminous-fire-619.firebaseio.com/comments.json?callback=commentload'></script>
+<script src="http://yui.yahooapis.com/3.14.1/build/yui/yui.js"></script>
+<script>
+YUI().use('node-base', 'node-event-delegate', function (Y) {
+    // This just makes sure that the href="#" attached to the <a> elements
+    // don't scroll you back up the page.
+    Y.one('body').delegate('click', function (e) {
+        e.preventDefault();
+    }, 'a[href="#"]');
+});
+</script>
+
+
+
+
+
+</body>
+</html>
