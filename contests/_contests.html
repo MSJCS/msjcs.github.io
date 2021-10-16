@@ -222,10 +222,39 @@
   .post{
     font-family:"Arial";
   }
+    #ad{
+        position: fixed;
+        top: 30%;
+        left: 30%;
+        background-color: rgb(136, 6, 6);
+        z-index: 200;
+        width: 40%;
+        height: 40%;
+        text-align: center;
+        font-size: 1.8em;
+        border-radius: 0.5em;
+        color: white;
+    }
 </style>
 <!--end commentscripting-->
 </head>
 <body onload="setup();">
+<!--
+<div id="ad">
+    <div style="overflow: auto;">
+        <button style="float: right; background-color: transparent; border-style: none" onclick="document.getElementById('ad').style.display = 'none';">
+            X
+        </button>
+    </div>
+    <div>
+        <p style="margin: 0; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px;">
+            Join Our Discord Group<br><br>
+            <a href="https://discord.gg/EFF7D2u" style="color: white;">Here</a>
+        </p>
+    </div>
+    
+</div>
+-->
 <div id="layout" class="pure-g">
     <div class="sidebar pure-u-1 pure-u-med-1-4">
         <div class="header slide">
@@ -259,24 +288,33 @@
     <div class="content pure-u-1 pure-u-med-3-4">
         <div>
             <div class="posts">
-                <h1 class="content-subhead">3/5 Lecture Summary</h1>
+                <h1 class="content-subhead">Recent Posts</h1>
+                
                 <section class="post">
                     <header class="post-header">
                         <img class="post-avatar" alt="Angela&#x27;s avatar" height="48" width="48" src="../user-icons/Leo.jpg">
 
-                        <h2 class="post-title">Sliding Window</h2>
+                        <h2 class="post-title">October Contest! </h2>
+
                         <p class="post-meta">
                             By <a class="post-author" href="#">Leo Cui</a>
                         </p>
                     </header>
                     <div class="post-description">
                         <p>
-                            <a href="https://docs.google.com/presentation/d/1zO0LVlHs0IiyejgGA83nqAX_4ec0mkhJfmGxbLrWEyU/edit#slide=id.p">Here</a> is the link to the slide.
+                            Hey everyone!
+                        <br>
+                            We're hosting a Competitive Programming contest in a few days on CodeForces.
+                        <br>
+                            Problems will range from Bronze to Gold+ difficulty, so whether you're a Competitive Programming veteran or just starting Competitive Programming, you should join!
+                        <br>
+                            Click <a href="october-21.html">here</a> for more details about the contest.
                         </p>
                     </div>
                 </section>
             </div>
-            
+
+
             <div class="footer">
                 <div class="pure-menu pure-menu-horizontal pure-menu-open">
                     <ul>
@@ -284,7 +322,7 @@
                         <li><a href="https://www.facebook.com/groups/170424299658516/">Facebook</a></li>
                         <li><a href="http://github.com/MSJCS">GitHub</a></li>
                     </ul>
-                    <br>
+                </br>
                     <ul>
                         <li><a href = "mailto:MSJHSCompSci@gmail.com">MSJHSCompSci@gmail.com</a></li>
                     </ul>
